@@ -264,7 +264,7 @@ public class Block extends BaseBean {
 	}
 	
 	/**
-	 * <br/>Description:删除Block
+	 * <br/>Description:删除一个Block（包括克隆的Block）
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
 	public String DeleteBlock(String poolName,String blockName) throws AuthException, HttpException, IOException {
