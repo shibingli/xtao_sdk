@@ -1,2 +1,2 @@
 # xtao_sdk
-XTao_SDK
+极道存储 API，Java SDK 实现。
