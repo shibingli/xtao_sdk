@@ -1,8 +1,6 @@
 # xtao_sdk
 极道存储 API，Java SDK 实现。
 
-IXTaoClient xtaoClient= new XTaoClient("http://127.0.0.1:8888/api/v1", "admin", "nasadmin");
-
 例子：
 
 #获取极道存储SDK主函数
