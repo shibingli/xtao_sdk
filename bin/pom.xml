@@ -1,0 +1,74 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.ronglian.sdk</groupId>
+	<artifactId>xtao</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>xtao_sdk</name>
+	<description>Xtao SDK</description>
+	<properties>
+		<java.version>1.8</java.version>
+		<maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+
+		<fastjson.version>1.2.17</fastjson.version>
+		<okhttp.version>3.4.1</okhttp.version>
+		<slf4j.version>1.7.2</slf4j.version>
+		<junit.version>4.12</junit.version>
+		<guava.version>19.0</guava.version>
+		<apache.lang3.version>3.4</apache.lang3.version>
+	</properties>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${apache.lang3.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>${guava.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>${fastjson.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.squareup.okhttp3</groupId>
+			<artifactId>okhttp</artifactId>
+			<version>${okhttp.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+		</dependency>
+	</dependencies>
+
+	<profiles>
+		<profile>
+			<id>xtao_sdk</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+				<jdk>${java.version}</jdk>
+			</activation>
+			<properties>
+				<maven.compiler.source>${java.version}</maven.compiler.source>
+				<maven.compiler.target>${java.version}</maven.compiler.target>
+				<maven.compiler.compilerVersion>${java.version}</maven.compiler.compilerVersion>
+			</properties>
+		</profile>
+	</profiles>
+</project>

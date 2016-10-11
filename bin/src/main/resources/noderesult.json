@@ -1,0 +1,16 @@
+{
+	"status": "ok",
+	"result": [
+		{
+			"host_disk_count": 10,
+			"host_nic_count": 1,
+			"node_name": "xt1"
+		},
+		{
+			"host_disk_count": 11,
+			"host_nic_count": 1,
+			"node_name": "xt2"
+		}
+	],
+	"errmsg": ""
+}
