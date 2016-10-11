@@ -185,7 +185,7 @@ public class Block extends BaseBean {
 	}
 	
 	/**
-	 * <br/>Description:从快照回滚Block数据
+	 * <br/>Description:从快照回滚Block数据。
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
 	public String RollbackSnapshot(String snapName,String poolName,String blockName) throws AuthException, HttpException, IOException {
