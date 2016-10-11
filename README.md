@@ -1,4 +1,4 @@
-# xtao_sdk
+# XTao SDK for Java
 极道存储 API，Java SDK 实现。
 
 例子：
