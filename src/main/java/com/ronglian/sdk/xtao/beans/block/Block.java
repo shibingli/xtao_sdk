@@ -214,7 +214,7 @@ public class Block extends BaseBean {
 	 * <br/>Description:基于快照创建克隆
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String CloneSnapshot(String poolName,String blockName,String snapName,String cloneName) throws AuthException, HttpException, IOException {
+	public String CloneBlockBySnapshot(String snapName,String poolName,String blockName,String cloneName) throws AuthException, HttpException, IOException {
 		PublicResult  publicResult = null;
 
 		Map<String, String> maps = new HashMap<>();
