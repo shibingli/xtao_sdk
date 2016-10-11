@@ -101,8 +101,8 @@ public class Disk extends BaseBean {
 	@JSONField(name = "weight")
 	private String Weight;
 
-	@JSONField(name = "commit")
-	private String Commit;
+	@JSONField(name = "commit_latency")
+	private String CommitLatency;
 
 	@JSONField(name = "OSD")
 	private String OSD;
@@ -110,8 +110,8 @@ public class Disk extends BaseBean {
 	@JSONField(name = "minor")
 	private String Minor;
 
-	@JSONField(name = "latency")
-	private String Latency;
+	@JSONField(name = "apply_latency")
+	private String ApplyLatency;
 
 	@JSONField(name = "size")
 	private String Size;
@@ -619,7 +619,7 @@ public class Disk extends BaseBean {
 	 * </p>
 	 */
 	public String getLatency() {
-		return Latency;
+		return ApplyLatency;
 	}
 
 	/**
@@ -629,7 +629,7 @@ public class Disk extends BaseBean {
 	 * </p>
 	 */
 	public void setLatency(String latency) {
-		Latency = latency;
+		ApplyLatency = latency;
 	}
 
 	/**
@@ -639,7 +639,7 @@ public class Disk extends BaseBean {
 	 * </p>
 	 */
 	public String getCommit() {
-		return Commit;
+		return CommitLatency;
 	}
 
 	/**
@@ -649,7 +649,7 @@ public class Disk extends BaseBean {
 	 * </p>
 	 */
 	public void setCommit(String commit) {
-		Commit = commit;
+		CommitLatency = commit;
 	}
 
 	/**
