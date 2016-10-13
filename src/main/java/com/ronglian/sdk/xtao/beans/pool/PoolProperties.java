@@ -70,7 +70,7 @@ public class PoolProperties extends BaseBean {
 	@JSONField(name = "stripe")
 	private int Stripe;
 
-	@JSONField(name = "type")
+	@JSONField(name = "pool_type")
 	private String PoolType;
 
 	@JSONField(name = "max_size")

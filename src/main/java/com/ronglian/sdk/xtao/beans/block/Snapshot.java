@@ -27,9 +27,6 @@ public class Snapshot extends BaseBean {
 	 */
 	private static final long serialVersionUID = 8339027448758979808L;
 	
-	@JSONField(name="type")
-	 private String SnapshotType;
-	
 	@JSONField(name="id")
 	 private String Id;
 	
@@ -45,22 +42,6 @@ public class Snapshot extends BaseBean {
 	 */
 	public Snapshot() {
 		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * return snapshotType
-	 * <p>Author:Eric Shi/史丙利</p>
-	 */
-	public String getSnapshotType() {
-		return SnapshotType;
-	}
-
-	/**
-	 * param snapshotType 要设置的 snapshotType
-	 * <p>Author:Eric Shi/史丙利</p>
-	 */
-	public void setSnapshotType(String snapshotType) {
-		SnapshotType = snapshotType;
 	}
 
 	/**
