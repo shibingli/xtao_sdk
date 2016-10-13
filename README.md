@@ -4,14 +4,32 @@
 例子：
 
 #获取极道存储SDK主函数
-IXTaoClient xtaoClient= new XTaoClient("http://127.0.0.1:8888/api/v1", "admin", "nasadmin");
+
+<code>
+IXTaoClient client= new XTaoClient("http://127.0.0.1:8888/api/v1", "admin", "nasadmin");
+</code>
 
 #操作Node对象
 
-xtaoClient.GetNode().Lists().forEach((n) -> System.out
-				.println(n.getNodeName() + "==>" + n.getHostDiskCount() + "==>" + n.getHostNicCount()));
+<code>
+		NodeListResult nodeListResult = client.GetNode().Lists();
+		if (nodeListResult.getStatus()) {
+			nodeListResult.getResult().forEach((n) -> System.out
+					.println(n.getNodeName() + "==>" + n.getHostDiskCount() + "==>" + n.getHostNicCount()));
+		} else {
+			System.out.println(nodeListResult.getErrmsg());
+		}
+</code>
 
 #操作Disk对象
-xtaoClient.GetDisk().Lists("xt1").forEach((d) -> System.out.println(d.getUUID() + "==>" + d.getHCTL()));
+
+<code>
+		DiskListResult diskListResult = client.GetDisk().Lists("xt1");
+		if (diskListResult.getStatus()) {
+			diskListResult.getResult().forEach((d) -> System.out.println(d.getUUID() + "==>" + d.getHCTL()));
+		} else {
+			System.out.println(diskListResult.getErrmsg());
+		}
+</code>
 
 #其它对象同上
