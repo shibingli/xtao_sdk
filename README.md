@@ -11,6 +11,7 @@ IXTaoClient client= new XTaoClient("http://127.0.0.1:8888/api/v1", "admin", "nas
 
 #操作Node对象
 
+<pre>
 <code>
 		NodeListResult nodeListResult = client.GetNode().Lists();
 		if (nodeListResult.getStatus()) {
@@ -20,9 +21,11 @@ IXTaoClient client= new XTaoClient("http://127.0.0.1:8888/api/v1", "admin", "nas
 			System.out.println(nodeListResult.getErrmsg());
 		}
 </code>
+</pre>
 
 #操作Disk对象
 
+<pre>
 <code>
 		DiskListResult diskListResult = client.GetDisk().Lists("xt1");
 		if (diskListResult.getStatus()) {
@@ -31,5 +34,6 @@ IXTaoClient client= new XTaoClient("http://127.0.0.1:8888/api/v1", "admin", "nas
 			System.out.println(diskListResult.getErrmsg());
 		}
 </code>
+</pre>
 
 #其它对象同上
