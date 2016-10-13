@@ -3,14 +3,15 @@
 
 <b>例子：</b>
 
-#获取极道存储SDK主函数
+##获取极道存储SDK主函数
 
 <pre>
 <code>
 IXTaoClient client= new XTaoClient("http://127.0.0.1:8888/api/v1", "admin", "nasadmin");
 </code>
 </pre>
-#操作Node对象
+
+##操作Node对象
 
 <pre>
 <code>
@@ -24,7 +25,7 @@ if (nodeListResult.getStatus()) {
 </code>
 </pre>
 
-#操作Disk对象
+##操作Disk对象
 
 <pre>
 <code>
@@ -37,4 +38,4 @@ if (diskListResult.getStatus()) {
 </code>
 </pre>
 
-#其它对象同上
+##其它对象同上
