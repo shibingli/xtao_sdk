@@ -206,7 +206,7 @@ public class Pool extends BaseBean {
 	}
 	
 	/**
-	 * <br/>Description:设置池的quota，
+	 * <br/>Description:设置池的 Quota，
 	 * 设置池能存放的对象的上限(例如500个)，或者池存储的容量的上限(例如1000GB)
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
