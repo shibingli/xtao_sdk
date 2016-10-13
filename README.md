@@ -13,13 +13,13 @@ IXTaoClient client= new XTaoClient("http://127.0.0.1:8888/api/v1", "admin", "nas
 
 <pre>
 <code>
-		NodeListResult nodeListResult = client.GetNode().Lists();
-		if (nodeListResult.getStatus()) {
-			nodeListResult.getResult().forEach((n) -> System.out
-					.println(n.getNodeName() + "==>" + n.getHostDiskCount() + "==>" + n.getHostNicCount()));
-		} else {
-			System.out.println(nodeListResult.getErrmsg());
-		}
+NodeListResult nodeListResult = client.GetNode().Lists();
+if (nodeListResult.getStatus()) {
+	nodeListResult.getResult().forEach((n) -> System.out
+			.println(n.getNodeName() + "==>" + n.getHostDiskCount() + "==>" + n.getHostNicCount()));
+} else {
+	System.out.println(nodeListResult.getErrmsg());
+}
 </code>
 </pre>
 
@@ -27,12 +27,12 @@ IXTaoClient client= new XTaoClient("http://127.0.0.1:8888/api/v1", "admin", "nas
 
 <pre>
 <code>
-		DiskListResult diskListResult = client.GetDisk().Lists("xt1");
-		if (diskListResult.getStatus()) {
-			diskListResult.getResult().forEach((d) -> System.out.println(d.getUUID() + "==>" + d.getHCTL()));
-		} else {
-			System.out.println(diskListResult.getErrmsg());
-		}
+DiskListResult diskListResult = client.GetDisk().Lists("xt1");
+if (diskListResult.getStatus()) {
+	diskListResult.getResult().forEach((d) -> System.out.println(d.getUUID() + "==>" + d.getHCTL()));
+} else {
+	System.out.println(diskListResult.getErrmsg());
+}
 </code>
 </pre>
 
