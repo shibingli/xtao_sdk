@@ -93,7 +93,7 @@ public class Domain extends BaseBean {
 	 * Author:Eric Shi/史丙利
 	 * </p>
 	 */
-	public DomainShow ShowDomain(boolean reference, String refName) throws IOException, AuthException, HttpException {
+	public DomainShowResult ShowDomain(boolean reference, String refName) throws IOException, AuthException, HttpException {
 
 		Map<String, Object> maps = new HashMap<>();
 		maps.put("reference", SDKUtils.BooleanToYes(reference));
@@ -102,11 +102,7 @@ public class Domain extends BaseBean {
 		DomainShowResult domainShowResult = Post(this.getEndpoint(), "/domains/domain/show_domain", this.GetUserToken(),
 				maps, DomainShowResult.class);
 
-		if (!SDKUtils.ParseBoolean(domainShowResult.getStatus())) {
-			throw new HttpException(domainShowResult.getErrmsg());
-		}
-
-		return domainShowResult.getResult();
+		return domainShowResult;
 	}
 
 	/**
@@ -116,16 +112,12 @@ public class Domain extends BaseBean {
 	 * Author:Eric Shi/史丙利
 	 * </p>
 	 */
-	public String[] Lists() throws IOException, AuthException, HttpException {
+	public DomainListResult Lists() throws IOException, AuthException, HttpException {
 
 		DomainListResult domainListResult = Post(this.getEndpoint(), "/domains/domain/get_domain_list",
 				this.GetUserToken(), new HashMap<>(), DomainListResult.class);
 
-		if (!SDKUtils.ParseBoolean(domainListResult.getStatus())) {
-			throw new HttpException(domainListResult.getErrmsg());
-		}
-
-		return domainListResult.getResult();
+		return domainListResult;
 	}
 
 	/**
@@ -135,7 +127,7 @@ public class Domain extends BaseBean {
 	 * Author:Eric Shi/史丙利
 	 * </p>
 	 */
-	public String Create(String name, boolean reference, String refName)
+	public PublicResult Create(String name, boolean reference, String refName)
 			throws IOException, AuthException, HttpException {
 
 		Map<String, Object> maps = new HashMap<>();
@@ -146,18 +138,14 @@ public class Domain extends BaseBean {
 		PublicResult publicResult = Post(this.getEndpoint(), "/domains/domain/create_domain", this.GetUserToken(), maps,
 				PublicResult.class);
 
-		if (!SDKUtils.ParseBoolean(publicResult.getStatus())) {
-			throw new HttpException(publicResult.getErrmsg());
-		}
-
-		return publicResult.getResult();
+		return publicResult;
 	}
 
 	/**
 	 * <br/>Description:删除故障树一级节点
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String Delete(String name, boolean reference, String refName)
+	public PublicResult Delete(String name, boolean reference, String refName)
 			throws IOException, AuthException, HttpException {
 
 		Map<String, Object> maps = new HashMap<>();
@@ -168,14 +156,14 @@ public class Domain extends BaseBean {
 		PublicResult publicResult = Post(this.getEndpoint(), "/domains/domain/delete_domain", this.GetUserToken(), maps,
 				PublicResult.class);
 
-		if (!SDKUtils.ParseBoolean(publicResult.getStatus())) {
-			throw new HttpException(publicResult.getErrmsg());
-		}
-
-		return publicResult.getResult();
+		return publicResult;
 	}
 	
-	public DomainShow Move(String sourceDisk,String destNode,boolean reference, String refName) throws IOException, AuthException, HttpException {
+	/**
+	 * <br/>Description:移动故障树三级节点
+	 * <p>Author:Eric Shi/史丙利</p>
+	 */
+	public DomainShowResult Move(String sourceDisk,String destNode,boolean reference, String refName) throws IOException, AuthException, HttpException {
 
 		Map<String, Object> maps = new HashMap<>();
 		maps.put("reference", SDKUtils.BooleanToYes(reference));
@@ -186,18 +174,14 @@ public class Domain extends BaseBean {
 		DomainShowResult domainShowResult = Post(this.getEndpoint(), "/domains/domain/move_domain", this.GetUserToken(),
 				maps, DomainShowResult.class);
 
-		if (!SDKUtils.ParseBoolean(domainShowResult.getStatus())) {
-			throw new HttpException(domainShowResult.getErrmsg());
-		}
-
-		return domainShowResult.getResult();
+		return domainShowResult;
 	}
 	
 	/**
 	 * <br/>Description:提交所有模拟操作(reference=yes)的改动
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String Commit(boolean reference, String refName)
+	public PublicResult Commit(boolean reference, String refName)
 			throws IOException, AuthException, HttpException {
 
 		Map<String, Object> maps = new HashMap<>();
@@ -207,11 +191,7 @@ public class Domain extends BaseBean {
 		PublicResult publicResult = Post(this.getEndpoint(), "/domains/domain/commit_domain", this.GetUserToken(), maps,
 				PublicResult.class);
 
-		if (!SDKUtils.ParseBoolean(publicResult.getStatus())) {
-			throw new HttpException(publicResult.getErrmsg());
-		}
-
-		return publicResult.getResult();
+		return publicResult;
 	}
 
 	/**

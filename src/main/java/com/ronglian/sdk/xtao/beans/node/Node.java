@@ -20,10 +20,8 @@ package com.ronglian.sdk.xtao.beans.node;
 
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
 
 import com.alibaba.fastjson.annotation.JSONField;
-import com.ronglian.sdk.xtao.SDKUtils;
 import com.ronglian.sdk.xtao.beans.BaseBean;
 import com.ronglian.sdk.xtao.beans.user.User;
 import com.ronglian.sdk.xtao.exception.AuthException;
@@ -97,7 +95,7 @@ public class Node extends BaseBean {
 	 * 
 	 * @throws IOException
 	 */
-	public List<Node> Lists() throws AuthException, HttpException, IOException {
+	public NodeListResult Lists() throws AuthException, HttpException, IOException {
 		NodeListResult nodeResult = null;
 
 		try {
@@ -107,11 +105,7 @@ public class Node extends BaseBean {
 			throw e;
 		}
 
-		if (!SDKUtils.ParseBoolean(nodeResult.getStatus())) {
-			throw new HttpException(nodeResult.getErrmsg());
-		}
-
-		return nodeResult.getResult();
+		return nodeResult;
 	}
 
 	/**

@@ -11,11 +11,9 @@ package com.ronglian.sdk.xtao.beans.block;
 
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import com.alibaba.fastjson.annotation.JSONField;
-import com.ronglian.sdk.xtao.SDKUtils;
 import com.ronglian.sdk.xtao.beans.BaseBean;
 import com.ronglian.sdk.xtao.beans.PublicResult;
 import com.ronglian.sdk.xtao.beans.user.User;
@@ -60,7 +58,7 @@ public class Block extends BaseBean {
 	 * <br/>Description:列出Pool下的所有blocks
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public List<Block> Lists(String poolName) throws AuthException, HttpException, IOException {
+	public BlockListResult Lists(String poolName) throws AuthException, HttpException, IOException {
 		BlockListResult blockListResult = null;
 
 		Map<String, Object> maps = new HashMap<>();
@@ -72,12 +70,8 @@ public class Block extends BaseBean {
 		} catch (IOException e) {
 			throw e;
 		}
-
-		if (!SDKUtils.ParseBoolean(blockListResult.getStatus())) {
-			throw new HttpException(blockListResult.getErrmsg());
-		}
-
-		return blockListResult.getResult();
+		
+		return blockListResult;
 	}
 	
 	/**
@@ -85,7 +79,7 @@ public class Block extends BaseBean {
 	 * 主要用于展示这个block下的snapshots，以及基于各snapshot创建的克隆的层级信息。
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public BlockInfo Info(String poolName,String blockName) throws AuthException, HttpException, IOException {
+	public BlockInfoResult Info(String poolName,String blockName) throws AuthException, HttpException, IOException {
 		BlockInfoResult blockInfoResult = null;
 
 		Map<String, Object> maps = new HashMap<>();
@@ -99,18 +93,14 @@ public class Block extends BaseBean {
 			throw e;
 		}
 
-		if (!SDKUtils.ParseBoolean(blockInfoResult.getStatus())) {
-			throw new HttpException(blockInfoResult.getErrmsg());
-		}
-
-		return blockInfoResult.getResult();
+		return blockInfoResult;
 	}
 	
 	/**
 	 * <br/>Description:创建一个新的Block
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String Create(String poolName,String blockName,long size) throws AuthException, HttpException, IOException {
+	public PublicResult Create(String poolName,String blockName,long size) throws AuthException, HttpException, IOException {
 		PublicResult  publicResult = null;
 
 		Map<String, Object> maps = new HashMap<>();
@@ -125,18 +115,14 @@ public class Block extends BaseBean {
 			throw e;
 		}
 
-		if (!SDKUtils.ParseBoolean(publicResult.getStatus())) {
-			throw new HttpException(publicResult.getErrmsg());
-		}
-
-		return publicResult.getResult();
+		return publicResult;
 	}
 	
 	/**
 	 * <br/>Description:改变block的Size大小,注意输入的Size需要大于Block之前的Size。
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String Resize(String poolName,String blockName,long size) throws AuthException, HttpException, IOException {
+	public PublicResult Resize(String poolName,String blockName,long size) throws AuthException, HttpException, IOException {
 		PublicResult  publicResult = null;
 
 		Map<String, Object> maps = new HashMap<>();
@@ -151,18 +137,14 @@ public class Block extends BaseBean {
 			throw e;
 		}
 
-		if (!SDKUtils.ParseBoolean(publicResult.getStatus())) {
-			throw new HttpException(publicResult.getErrmsg());
-		}
-
-		return publicResult.getResult();
+		return publicResult;
 	}
 	
 	/**
 	 * <br/>Description:为block创建一个快照
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String CreateSnapshot(String poolName,String blockName,String snapName) throws AuthException, HttpException, IOException {
+	public PublicResult CreateSnapshot(String poolName,String blockName,String snapName) throws AuthException, HttpException, IOException {
 		PublicResult  publicResult = null;
 
 		Map<String, Object> maps = new HashMap<>();
@@ -177,18 +159,14 @@ public class Block extends BaseBean {
 			throw e;
 		}
 
-		if (!SDKUtils.ParseBoolean(publicResult.getStatus())) {
-			throw new HttpException(publicResult.getErrmsg());
-		}
-
-		return publicResult.getResult();
+		return publicResult;
 	}
 	
 	/**
 	 * <br/>Description:从快照回滚Block数据。
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String RollbackSnapshot(String snapName,String poolName,String blockName) throws AuthException, HttpException, IOException {
+	public PublicResult RollbackSnapshot(String snapName,String poolName,String blockName) throws AuthException, HttpException, IOException {
 		PublicResult  publicResult = null;
 
 		Map<String, Object> maps = new HashMap<>();
@@ -203,18 +181,14 @@ public class Block extends BaseBean {
 			throw e;
 		}
 
-		if (!SDKUtils.ParseBoolean(publicResult.getStatus())) {
-			throw new HttpException(publicResult.getErrmsg());
-		}
-
-		return publicResult.getResult();
+		return publicResult;
 	}
 	
 	/**
 	 * <br/>Description:基于快照创建克隆
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String CloneBlockBySnapshot(String snapName,String poolName,String blockName,String cloneName) throws AuthException, HttpException, IOException {
+	public PublicResult CloneBlockBySnapshot(String snapName,String poolName,String blockName,String cloneName) throws AuthException, HttpException, IOException {
 		PublicResult  publicResult = null;
 
 		Map<String, Object> maps = new HashMap<>();
@@ -230,18 +204,14 @@ public class Block extends BaseBean {
 			throw e;
 		}
 
-		if (!SDKUtils.ParseBoolean(publicResult.getStatus())) {
-			throw new HttpException(publicResult.getErrmsg());
-		}
-
-		return publicResult.getResult();
+		return publicResult;
 	}
 	
 	/**
 	 * <br/>Description:删除快照
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String DeleteSnapshot(String poolName,String blockName,String snapName) throws AuthException, HttpException, IOException {
+	public PublicResult DeleteSnapshot(String poolName,String blockName,String snapName) throws AuthException, HttpException, IOException {
 		PublicResult  publicResult = null;
 
 		Map<String, Object> maps = new HashMap<>();
@@ -256,18 +226,14 @@ public class Block extends BaseBean {
 			throw e;
 		}
 
-		if (!SDKUtils.ParseBoolean(publicResult.getStatus())) {
-			throw new HttpException(publicResult.getErrmsg());
-		}
-
-		return publicResult.getResult();
+		return publicResult;
 	}
 	
 	/**
 	 * <br/>Description:删除一个Block（包括克隆的Block）
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String DeleteBlock(String poolName,String blockName) throws AuthException, HttpException, IOException {
+	public PublicResult DeleteBlock(String poolName,String blockName) throws AuthException, HttpException, IOException {
 		PublicResult  publicResult = null;
 
 		Map<String, Object> maps = new HashMap<>();
@@ -281,11 +247,7 @@ public class Block extends BaseBean {
 			throw e;
 		}
 
-		if (!SDKUtils.ParseBoolean(publicResult.getStatus())) {
-			throw new HttpException(publicResult.getErrmsg());
-		}
-
-		return publicResult.getResult();
+		return publicResult;
 	}
 	
 	

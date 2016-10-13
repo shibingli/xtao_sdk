@@ -11,7 +11,6 @@ package com.ronglian.sdk.xtao.beans.disk;
 
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import com.alibaba.fastjson.annotation.JSONField;
@@ -128,7 +127,7 @@ public class Disk extends BaseBean {
 	 * Author:Eric Shi/史丙利
 	 * </p>
 	 */
-	public List<Disk> Lists(String nodeName) throws IOException, AuthException, HttpException {
+	public DiskListResult Lists(String nodeName) throws IOException, AuthException, HttpException {
 
 		Map<String, Object> maps = new HashMap<>();
 		maps.put("node_name", nodeName);
@@ -136,11 +135,7 @@ public class Disk extends BaseBean {
 		DiskListResult diskResult = Post(this.getEndpoint(), "/nodes/disk/list_disks", this.GetUserToken(), maps,
 				DiskListResult.class);
 
-		if (!SDKUtils.ParseBoolean(diskResult.getStatus())) {
-			throw new HttpException(diskResult.getErrmsg());
-		}
-
-		return diskResult.getResult();
+		return diskResult;
 	}
 
 	/**
@@ -150,7 +145,7 @@ public class Disk extends BaseBean {
 	 * Author:Eric Shi/史丙利
 	 * </p>
 	 */
-	public Disk Status(String nodeName, String hctl) throws IOException, AuthException, HttpException {
+	public DiskStatusResult Status(String nodeName, String hctl) throws IOException, AuthException, HttpException {
 
 		Map<String, Object> maps = new HashMap<>();
 		maps.put("node_name", nodeName);
@@ -159,11 +154,7 @@ public class Disk extends BaseBean {
 		DiskStatusResult diskStatusResult = Post(this.getEndpoint(), "/nodes/disk/status_disk", this.GetUserToken(),
 				maps, DiskStatusResult.class);
 
-		if (!SDKUtils.ParseBoolean(diskStatusResult.getStatus())) {
-			throw new HttpException(diskStatusResult.getErrmsg());
-		}
-
-		return diskStatusResult.getResult();
+		return diskStatusResult;
 	}
 
 	/**
@@ -173,7 +164,7 @@ public class Disk extends BaseBean {
 	 * Author:Eric Shi/史丙利
 	 * </p>
 	 */
-	public String Locate(String nodeName, String hctl) throws IOException, AuthException, HttpException {
+	public PublicResult Locate(String nodeName, String hctl) throws IOException, AuthException, HttpException {
 
 		Map<String, Object> maps = new HashMap<>();
 		maps.put("node_name", nodeName);
@@ -182,11 +173,7 @@ public class Disk extends BaseBean {
 		PublicResult publicResult = Post(this.getEndpoint(), "/nodes/disk/locate_disk", this.GetUserToken(), maps,
 				PublicResult.class);
 
-		if (!SDKUtils.ParseBoolean(publicResult.getStatus())) {
-			throw new HttpException(publicResult.getErrmsg());
-		}
-
-		return publicResult.getResult();
+		return publicResult;
 	}
 
 	/**
@@ -196,7 +183,7 @@ public class Disk extends BaseBean {
 	 * Author:Eric Shi/史丙利
 	 * </p>
 	 */
-	public String Clear(String nodeName, String hctl, String FSType)
+	public PublicResult Clear(String nodeName, String hctl, String FSType)
 			throws IOException, AuthException, HttpException {
 
 		Map<String, Object> maps = new HashMap<>();
@@ -207,11 +194,7 @@ public class Disk extends BaseBean {
 		PublicResult publicResult = Post(this.getEndpoint(), "/nodes/disk/clear_disk", this.GetUserToken(), maps,
 				PublicResult.class);
 
-		if (!SDKUtils.ParseBoolean(publicResult.getStatus())) {
-			throw new HttpException(publicResult.getErrmsg());
-		}
-
-		return publicResult.getResult();
+		return publicResult;
 	}
 
 	/**
@@ -221,16 +204,12 @@ public class Disk extends BaseBean {
 	 * Author:Eric Shi/史丙利
 	 * </p>
 	 */
-	public String[] FSTypes() throws IOException, AuthException, HttpException {
+	public DiskFSTypesResult FSTypes() throws IOException, AuthException, HttpException {
 
 		DiskFSTypesResult diskFSTypesResult = Post(this.getEndpoint(), "/nodes/disk/get_disk_fs_type",
 				this.GetUserToken(), new HashMap<>(), DiskFSTypesResult.class);
 
-		if (!SDKUtils.ParseBoolean(diskFSTypesResult.getStatus())) {
-			throw new HttpException(diskFSTypesResult.getErrmsg());
-		}
-
-		return diskFSTypesResult.getResult();
+		return diskFSTypesResult;
 	}
 
 	/**
@@ -240,7 +219,7 @@ public class Disk extends BaseBean {
 	 * Author:Eric Shi/史丙利
 	 * </p>
 	 */
-	public String Init(String nodeName, String hctl, boolean userCache)
+	public PublicResult Init(String nodeName, String hctl, boolean userCache)
 			throws IOException, AuthException, HttpException {
 
 		Map<String, Object> maps = new HashMap<>();
@@ -251,11 +230,7 @@ public class Disk extends BaseBean {
 		PublicResult publicResult = Post(this.getEndpoint(), "/nodes/disk/init_disk", this.GetUserToken(), maps,
 				PublicResult.class);
 
-		if (!SDKUtils.ParseBoolean(publicResult.getStatus())) {
-			throw new HttpException(publicResult.getErrmsg());
-		}
-
-		return publicResult.getResult();
+		return publicResult;
 	}
 
 	/**
@@ -265,7 +240,7 @@ public class Disk extends BaseBean {
 	 * Author:Eric Shi/史丙利
 	 * </p>
 	 */
-	public String Join(String nodeName, String hctl) throws IOException, AuthException, HttpException {
+	public PublicResult Join(String nodeName, String hctl) throws IOException, AuthException, HttpException {
 
 		Map<String, Object> maps = new HashMap<>();
 		maps.put("node_name", nodeName);
@@ -274,11 +249,7 @@ public class Disk extends BaseBean {
 		PublicResult publicResult = Post(this.getEndpoint(), "/nodes/disk/join_disk", this.GetUserToken(), maps,
 				PublicResult.class);
 
-		if (!SDKUtils.ParseBoolean(publicResult.getStatus())) {
-			throw new HttpException(publicResult.getErrmsg());
-		}
-
-		return publicResult.getResult();
+		return publicResult;
 	}
 
 	/**
@@ -288,7 +259,7 @@ public class Disk extends BaseBean {
 	 * Author:Eric Shi/史丙利
 	 * </p>
 	 */
-	public String Leave(String nodeName, String hctl) throws IOException, AuthException, HttpException {
+	public PublicResult Leave(String nodeName, String hctl) throws IOException, AuthException, HttpException {
 
 		Map<String, Object> maps = new HashMap<>();
 		maps.put("node_name", nodeName);
@@ -297,11 +268,7 @@ public class Disk extends BaseBean {
 		PublicResult publicResult = Post(this.getEndpoint(), "/nodes/disk/leave_disk", this.GetUserToken(), maps,
 				PublicResult.class);
 
-		if (!SDKUtils.ParseBoolean(publicResult.getStatus())) {
-			throw new HttpException(publicResult.getErrmsg());
-		}
-
-		return publicResult.getResult();
+		return publicResult;
 	}
 
 	/**
@@ -312,7 +279,7 @@ public class Disk extends BaseBean {
 	 * Author:Eric Shi/史丙利
 	 * </p>
 	 */
-	public String CreateCache(String nodeName, String hctl, int slices)
+	public PublicResult CreateCache(String nodeName, String hctl, int slices)
 			throws IOException, AuthException, HttpException {
 
 		Map<String, Object> maps = new HashMap<>();
@@ -323,11 +290,7 @@ public class Disk extends BaseBean {
 		PublicResult publicResult = Post(this.getEndpoint(), "/nodes/disk/create_cache", this.GetUserToken(), maps,
 				PublicResult.class);
 
-		if (!SDKUtils.ParseBoolean(publicResult.getStatus())) {
-			throw new HttpException(publicResult.getErrmsg());
-		}
-
-		return publicResult.getResult();
+		return publicResult;
 	}
 
 	/**
@@ -337,7 +300,7 @@ public class Disk extends BaseBean {
 	 * Author:Eric Shi/史丙利
 	 * </p>
 	 */
-	public List<Disk> CacheInfo(String nodeName, String hctl) throws IOException, AuthException, HttpException {
+	public DiskListResult CacheInfo(String nodeName, String hctl) throws IOException, AuthException, HttpException {
 
 		Map<String, Object> maps = new HashMap<>();
 		maps.put("node_name", nodeName);
@@ -346,11 +309,7 @@ public class Disk extends BaseBean {
 		DiskListResult diskListResult = Post(this.getEndpoint(), "/nodes/disk/cache_info", this.GetUserToken(), maps,
 				DiskListResult.class);
 
-		if (!SDKUtils.ParseBoolean(diskListResult.getStatus())) {
-			throw new HttpException(diskListResult.getErrmsg());
-		}
-
-		return diskListResult.getResult();
+		return diskListResult;
 	}
 
 	/**

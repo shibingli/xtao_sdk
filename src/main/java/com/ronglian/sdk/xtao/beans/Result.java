@@ -12,6 +12,7 @@ package com.ronglian.sdk.xtao.beans;
 import java.io.Serializable;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.ronglian.sdk.xtao.SDKUtils;
 
 /**
  * <p>
@@ -43,12 +44,10 @@ public class Result implements Serializable {
 	private static final long serialVersionUID = -6151922943126590406L;
 
 	@JSONField(name = "status")
-	private String Status;
+	private boolean Status;
 
 	@JSONField(name = "errmsg")
 	private String Errmsg;
-	
-
 	
 	/**
 	 * return status
@@ -56,7 +55,7 @@ public class Result implements Serializable {
 	 * Author:Eric Shi/史丙利
 	 * </p>
 	 */
-	public String getStatus() {
+	public boolean getStatus() {
 		return Status;
 	}
 
@@ -67,7 +66,7 @@ public class Result implements Serializable {
 	 * </p>
 	 */
 	public void setStatus(String status) {
-		Status = status;
+		Status =SDKUtils.ParseBoolean(status) ;
 	}
 
 	/**

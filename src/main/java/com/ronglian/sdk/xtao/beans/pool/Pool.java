@@ -20,11 +20,9 @@ package com.ronglian.sdk.xtao.beans.pool;
 
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import com.alibaba.fastjson.annotation.JSONField;
-import com.ronglian.sdk.xtao.SDKUtils;
 import com.ronglian.sdk.xtao.beans.BaseBean;
 import com.ronglian.sdk.xtao.beans.PublicResult;
 import com.ronglian.sdk.xtao.beans.user.User;
@@ -112,7 +110,7 @@ public class Pool extends BaseBean {
 	 * Author:Eric Shi/史丙利
 	 * </p>
 	 */
-	public List<Pool> Lists() throws AuthException, HttpException, IOException {
+	public PoolListResult Lists() throws AuthException, HttpException, IOException {
 		PoolListResult poolListResult = null;
 
 		try {
@@ -122,11 +120,7 @@ public class Pool extends BaseBean {
 			throw e;
 		}
 
-		if (!SDKUtils.ParseBoolean(poolListResult.getStatus())) {
-			throw new HttpException(poolListResult.getErrmsg());
-		}
-
-		return poolListResult.getResult();
+		return poolListResult;
 	}
 
 	/**
@@ -136,7 +130,7 @@ public class Pool extends BaseBean {
 	 * Author:Eric Shi/史丙利
 	 * </p>
 	 */
-	public PoolMainStatus Status() throws AuthException, HttpException, IOException {
+	public PoolStatusResult Status() throws AuthException, HttpException, IOException {
 		PoolStatusResult poolStatusResult = null;
 
 		try {
@@ -146,18 +140,14 @@ public class Pool extends BaseBean {
 			throw e;
 		}
 
-		if (!SDKUtils.ParseBoolean(poolStatusResult.getStatus())) {
-			throw new HttpException(poolStatusResult.getErrmsg());
-		}
-
-		return poolStatusResult.getResult();
+		return poolStatusResult;
 	}
 
 	/**
 	 * <br/>Description:创建一个新池
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String Create(String poolName, String domainName, int repNum)
+	public PublicResult Create(String poolName, String domainName, int repNum)
 			throws AuthException, HttpException, IOException {
 		PublicResult publicResult = null;
 
@@ -173,18 +163,14 @@ public class Pool extends BaseBean {
 			throw e;
 		}
 
-		if (!SDKUtils.ParseBoolean(publicResult.getStatus())) {
-			throw new HttpException(publicResult.getErrmsg());
-		}
-
-		return publicResult.getResult();
+		return publicResult;
 	}
 	
 	/**
 	 * <br/>Description:删除池
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String Destroy(String poolName)
+	public PublicResult Destroy(String poolName)
 			throws AuthException, HttpException, IOException {
 		PublicResult publicResult = null;
 
@@ -197,12 +183,8 @@ public class Pool extends BaseBean {
 		} catch (IOException e) {
 			throw e;
 		}
-
-		if (!SDKUtils.ParseBoolean(publicResult.getStatus())) {
-			throw new HttpException(publicResult.getErrmsg());
-		}
-
-		return publicResult.getResult();
+		
+		return publicResult;
 	}
 	
 	/**
@@ -210,7 +192,7 @@ public class Pool extends BaseBean {
 	 * 设置池能存放的对象的上限(例如500个)，或者池存储的容量的上限(例如1000GB)
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String Quota(String poolName,String quotaType,long quotaValue)
+	public PublicResult Quota(String poolName,String quotaType,long quotaValue)
 			throws AuthException, HttpException, IOException {
 		PublicResult publicResult = null;
 
@@ -226,18 +208,14 @@ public class Pool extends BaseBean {
 			throw e;
 		}
 
-		if (!SDKUtils.ParseBoolean(publicResult.getStatus())) {
-			throw new HttpException(publicResult.getErrmsg());
-		}
-
-		return publicResult.getResult();
+		return publicResult;
 	}
 	
 	/**
 	 * <br/>Description:将一个池添加为另一个池的缓存池
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String AddCache(String storagePool,String cachePool,String cacheMode)
+	public PublicResult AddCache(String storagePool,String cachePool,String cacheMode)
 			throws AuthException, HttpException, IOException {
 		PublicResult publicResult = null;
 
@@ -253,18 +231,14 @@ public class Pool extends BaseBean {
 			throw e;
 		}
 
-		if (!SDKUtils.ParseBoolean(publicResult.getStatus())) {
-			throw new HttpException(publicResult.getErrmsg());
-		}
-
-		return publicResult.getResult();
+		return publicResult;
 	}
 	
 	/**
 	 * <br/>Description:查看缓存池关系列表
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public PoolCacheInfo CacheInfo(String poolName)
+	public PoolCacheInfoResult CacheInfo(String poolName)
 			throws AuthException, HttpException, IOException {
 		PoolCacheInfoResult poolCacheInfoResult = null;
 
@@ -277,19 +251,15 @@ public class Pool extends BaseBean {
 		} catch (IOException e) {
 			throw e;
 		}
-
-		if (!SDKUtils.ParseBoolean(poolCacheInfoResult.getStatus())) {
-			throw new HttpException(poolCacheInfoResult.getErrmsg());
-		}
-
-		return poolCacheInfoResult.getResult();
+		
+		return poolCacheInfoResult;
 	}
 	
 	/**
 	 * <br/>Description:调整缓存池的参数
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String SetCache(String cachePoolName,String cacheMode,long maxBytes,long maxObjects,double dirtyRatio)
+	public PublicResult SetCache(String cachePoolName,String cacheMode,long maxBytes,long maxObjects,double dirtyRatio)
 			throws AuthException, HttpException, IOException {
 		
 		PublicResult publicResult = null;
@@ -308,11 +278,7 @@ public class Pool extends BaseBean {
 			throw e;
 		}
 
-		if (!SDKUtils.ParseBoolean(publicResult.getStatus())) {
-			throw new HttpException(publicResult.getErrmsg());
-		}
-
-		return publicResult.getResult();
+		return publicResult;
 	}
 	
 	
@@ -320,7 +286,7 @@ public class Pool extends BaseBean {
 	 * <br/>Description:将缓存池的数据立即刷入存储池
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String FlushCache(String cachePoolName)
+	public PublicResult FlushCache(String cachePoolName)
 			throws AuthException, HttpException, IOException {
 		
 		PublicResult publicResult = null;
@@ -335,18 +301,14 @@ public class Pool extends BaseBean {
 			throw e;
 		}
 
-		if (!SDKUtils.ParseBoolean(publicResult.getStatus())) {
-			throw new HttpException(publicResult.getErrmsg());
-		}
-
-		return publicResult.getResult();
+		return publicResult;
 	}
 	
 	/**
 	 * <br/>Description:删除两个池之间的缓存关系
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String RemoveCache(String storagePool,String cachePoolName)
+	public PublicResult RemoveCache(String storagePool,String cachePoolName)
 			throws AuthException, HttpException, IOException {
 		
 		PublicResult publicResult = null;
@@ -362,11 +324,7 @@ public class Pool extends BaseBean {
 			throw e;
 		}
 
-		if (!SDKUtils.ParseBoolean(publicResult.getStatus())) {
-			throw new HttpException(publicResult.getErrmsg());
-		}
-
-		return publicResult.getResult();
+		return publicResult;
 	}
 	
 	

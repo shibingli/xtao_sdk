@@ -74,25 +74,27 @@ public class BaseBean implements Serializable {
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
 	public String GetUserToken() throws AuthException, IOException {
-		User user = Login();
-		return user.getAccessToken();
+		UserResult userResult = Login();
+		
+		if(!userResult.getStatus()){
+			throw new AuthException(userResult.getErrmsg());
+		}
+		
+		return userResult.getResult().getAccessToken();
 	}
 
 	/**
 	 * <br/>Description:XTao API 登陆
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public User Login() throws AuthException, IOException {
+	public UserResult Login() throws AuthException, IOException {
 		Map<String, Object> maps = Maps.newHashMap();
 		maps.put("username", this.getUser().getUserName());
 		maps.put("password", this.getUser().getPassword());
 
 		UserResult userResult = Post(endpoint, "/account/auth_login", "", maps, UserResult.class);
 
-		if (!SDKUtils.ParseBoolean(userResult.getStatus())) {
-			throw new AuthException(userResult.getErrmsg());
-		}
-		return userResult.getResult();
+		return userResult;
 	}
 
 	/**
