@@ -50,106 +50,106 @@ public class PoolSummary extends BaseBean {
 	private static final long serialVersionUID = 6642747127715193113L;
 
 	@JSONField(name = "num_evict")
-	private String NumEvict;
+	private long NumEvict;
 
 	@JSONField(name = "num_evict_kb")
-	private String NumEvictKb;
+	private long NumEvictKb;
 
 	@JSONField(name = "num_bytes_hit_set_archive")
-	private String NumBytesHitSetArchive;
+	private long NumBytesHitSetArchive;
 
 	@JSONField(name = "num_whiteouts")
-	private String NumWhiteouts;
+	private long NumWhiteouts;
 
 	@JSONField(name = "num_objects_pinned")
-	private String NumObjectsPinned;
+	private long NumObjectsPinned;
 
 	@JSONField(name = "num_scrub_errors")
-	private String NumScrubErrors;
+	private long NumScrubErrors;
 
 	@JSONField(name = "num_evict_mode_full")
-	private String NumEvictModeFull;
+	private long NumEvictModeFull;
 
 	@JSONField(name = "num_read")
-	private String NumRead;
+	private long NumRead;
 
 	@JSONField(name = "num_objects_recovered")
-	private String NumObjectsRecovered;
+	private long NumObjectsRecovered;
 
 	@JSONField(name = "num_objects_omap")
-	private String NumObjectsOmap;
+	private long NumObjectsOmap;
 
 	@JSONField(name = "num_objects_missing_on_primary")
-	private String NumObjectsMissingOnPrimary;
+	private long NumObjectsMissingOnPrimary;
 
 	@JSONField(name = "num_write")
-	private String NumWrite;
+	private long NumWrite;
 
 	@JSONField(name = "num_object_clones")
-	private String NumObjectClones;
+	private long NumObjectClones;
 
 	@JSONField(name = "num_objects")
-	private String NumObjects;
+	private long NumObjects;
 
 	@JSONField(name = "num_deep_scrub_errors")
-	private String NumDeepScrubErrors;
+	private long NumDeepScrubErrors;
 
 	@JSONField(name = "num_shallow_scrub_errors")
-	private String NumShallowScrubErrors;
+	private long NumShallowScrubErrors;
 
 	@JSONField(name = "num_read_kb")
-	private String NumReadKb;
+	private long NumReadKb;
 
 	@JSONField(name = "num_objects_missing")
-	private String NumObjectsMissing;
+	private long NumObjectsMissing;
 
 	@JSONField(name = "num_flush_kb")
-	private String NumFlushKb;
+	private long NumFlushKb;
 
 	@JSONField(name = "num_flush_mode_high")
-	private String NumFlushModeHigh;
+	private long NumFlushModeHigh;
 
 	@JSONField(name = "num_write_kb")
-	private String NumWriteKb;
+	private long NumWriteKb;
 
 	@JSONField(name = "num_evict_mode_some")
-	private String NumEvictModeSome;
+	private long NumEvictModeSome;
 
 	@JSONField(name = "num_objects_degraded")
-	private String NumObjectsDegraded;
+	private long NumObjectsDegraded;
 
 	@JSONField(name = "num_flush")
-	private String NumFlush;
+	private long NumFlush;
 
 	@JSONField(name = "num_objects_misplaced")
-	private String NumObjectsMisplaced;
+	private long NumObjectsMisplaced;
 
 	@JSONField(name = "num_bytes_recovered")
-	private String NumBytesRecovered;
+	private long NumBytesRecovered;
 
 	@JSONField(name = "num_objects_hit_set_archive")
-	private String NumObjectsHitSetArchive;
+	private long NumObjectsHitSetArchive;
 
 	@JSONField(name = "num_keys_recovered")
-	private String NumKeysRecovered;
+	private long NumKeysRecovered;
 
 	@JSONField(name = "num_flush_mode_low")
-	private String NumFlushModeLow;
+	private long NumFlushModeLow;
 
 	@JSONField(name = "num_objects_unfound")
-	private String NumObjectsUnfound;
+	private long NumObjectsUnfound;
 
 	@JSONField(name = "num_promote")
-	private String NumPromote;
+	private long NumPromote;
 
 	@JSONField(name = "num_object_copies")
-	private String NumObjectCopies;
+	private long NumObjectCopies;
 
 	@JSONField(name = "num_bytes")
-	private String NumBytes;
+	private long NumBytes;
 
 	@JSONField(name = "num_objects_dirty")
-	private String NumObjectsDirty;
+	private long NumObjectsDirty;
 	
 	/**
 	 * <br/>Description:
@@ -163,7 +163,7 @@ public class PoolSummary extends BaseBean {
 	 * return numEvict
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getNumEvict() {
+	public long getNumEvict() {
 		return NumEvict;
 	}
 
@@ -171,7 +171,7 @@ public class PoolSummary extends BaseBean {
 	 * param numEvict 要设置的 numEvict
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setNumEvict(String numEvict) {
+	public void setNumEvict(long numEvict) {
 		NumEvict = numEvict;
 	}
 
@@ -179,7 +179,7 @@ public class PoolSummary extends BaseBean {
 	 * return numEvictKb
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getNumEvictKb() {
+	public long getNumEvictKb() {
 		return NumEvictKb;
 	}
 
@@ -187,7 +187,7 @@ public class PoolSummary extends BaseBean {
 	 * param numEvictKb 要设置的 numEvictKb
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setNumEvictKb(String numEvictKb) {
+	public void setNumEvictKb(long numEvictKb) {
 		NumEvictKb = numEvictKb;
 	}
 
@@ -195,7 +195,7 @@ public class PoolSummary extends BaseBean {
 	 * return numBytesHitSetArchive
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getNumBytesHitSetArchive() {
+	public long getNumBytesHitSetArchive() {
 		return NumBytesHitSetArchive;
 	}
 
@@ -203,7 +203,7 @@ public class PoolSummary extends BaseBean {
 	 * param numBytesHitSetArchive 要设置的 numBytesHitSetArchive
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setNumBytesHitSetArchive(String numBytesHitSetArchive) {
+	public void setNumBytesHitSetArchive(long numBytesHitSetArchive) {
 		NumBytesHitSetArchive = numBytesHitSetArchive;
 	}
 
@@ -211,7 +211,7 @@ public class PoolSummary extends BaseBean {
 	 * return numWhiteouts
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getNumWhiteouts() {
+	public long getNumWhiteouts() {
 		return NumWhiteouts;
 	}
 
@@ -219,7 +219,7 @@ public class PoolSummary extends BaseBean {
 	 * param numWhiteouts 要设置的 numWhiteouts
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setNumWhiteouts(String numWhiteouts) {
+	public void setNumWhiteouts(long numWhiteouts) {
 		NumWhiteouts = numWhiteouts;
 	}
 
@@ -227,7 +227,7 @@ public class PoolSummary extends BaseBean {
 	 * return numObjectsPinned
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getNumObjectsPinned() {
+	public long getNumObjectsPinned() {
 		return NumObjectsPinned;
 	}
 
@@ -235,7 +235,7 @@ public class PoolSummary extends BaseBean {
 	 * param numObjectsPinned 要设置的 numObjectsPinned
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setNumObjectsPinned(String numObjectsPinned) {
+	public void setNumObjectsPinned(long numObjectsPinned) {
 		NumObjectsPinned = numObjectsPinned;
 	}
 
@@ -243,7 +243,7 @@ public class PoolSummary extends BaseBean {
 	 * return numScrubErrors
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getNumScrubErrors() {
+	public long getNumScrubErrors() {
 		return NumScrubErrors;
 	}
 
@@ -251,7 +251,7 @@ public class PoolSummary extends BaseBean {
 	 * param numScrubErrors 要设置的 numScrubErrors
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setNumScrubErrors(String numScrubErrors) {
+	public void setNumScrubErrors(long numScrubErrors) {
 		NumScrubErrors = numScrubErrors;
 	}
 
@@ -259,7 +259,7 @@ public class PoolSummary extends BaseBean {
 	 * return numEvictModeFull
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getNumEvictModeFull() {
+	public long getNumEvictModeFull() {
 		return NumEvictModeFull;
 	}
 
@@ -267,7 +267,7 @@ public class PoolSummary extends BaseBean {
 	 * param numEvictModeFull 要设置的 numEvictModeFull
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setNumEvictModeFull(String numEvictModeFull) {
+	public void setNumEvictModeFull(long numEvictModeFull) {
 		NumEvictModeFull = numEvictModeFull;
 	}
 
@@ -275,7 +275,7 @@ public class PoolSummary extends BaseBean {
 	 * return numRead
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getNumRead() {
+	public long getNumRead() {
 		return NumRead;
 	}
 
@@ -283,7 +283,7 @@ public class PoolSummary extends BaseBean {
 	 * param numRead 要设置的 numRead
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setNumRead(String numRead) {
+	public void setNumRead(long numRead) {
 		NumRead = numRead;
 	}
 
@@ -291,7 +291,7 @@ public class PoolSummary extends BaseBean {
 	 * return numObjectsRecovered
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getNumObjectsRecovered() {
+	public long getNumObjectsRecovered() {
 		return NumObjectsRecovered;
 	}
 
@@ -299,7 +299,7 @@ public class PoolSummary extends BaseBean {
 	 * param numObjectsRecovered 要设置的 numObjectsRecovered
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setNumObjectsRecovered(String numObjectsRecovered) {
+	public void setNumObjectsRecovered(long numObjectsRecovered) {
 		NumObjectsRecovered = numObjectsRecovered;
 	}
 
@@ -307,7 +307,7 @@ public class PoolSummary extends BaseBean {
 	 * return numObjectsOmap
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getNumObjectsOmap() {
+	public long getNumObjectsOmap() {
 		return NumObjectsOmap;
 	}
 
@@ -315,7 +315,7 @@ public class PoolSummary extends BaseBean {
 	 * param numObjectsOmap 要设置的 numObjectsOmap
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setNumObjectsOmap(String numObjectsOmap) {
+	public void setNumObjectsOmap(long numObjectsOmap) {
 		NumObjectsOmap = numObjectsOmap;
 	}
 
@@ -323,7 +323,7 @@ public class PoolSummary extends BaseBean {
 	 * return numObjectsMissingOnPrimary
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getNumObjectsMissingOnPrimary() {
+	public long getNumObjectsMissingOnPrimary() {
 		return NumObjectsMissingOnPrimary;
 	}
 
@@ -331,7 +331,7 @@ public class PoolSummary extends BaseBean {
 	 * param numObjectsMissingOnPrimary 要设置的 numObjectsMissingOnPrimary
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setNumObjectsMissingOnPrimary(String numObjectsMissingOnPrimary) {
+	public void setNumObjectsMissingOnPrimary(long numObjectsMissingOnPrimary) {
 		NumObjectsMissingOnPrimary = numObjectsMissingOnPrimary;
 	}
 
@@ -339,7 +339,7 @@ public class PoolSummary extends BaseBean {
 	 * return numWrite
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getNumWrite() {
+	public long getNumWrite() {
 		return NumWrite;
 	}
 
@@ -347,7 +347,7 @@ public class PoolSummary extends BaseBean {
 	 * param numWrite 要设置的 numWrite
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setNumWrite(String numWrite) {
+	public void setNumWrite(long numWrite) {
 		NumWrite = numWrite;
 	}
 
@@ -355,7 +355,7 @@ public class PoolSummary extends BaseBean {
 	 * return numObjectClones
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getNumObjectClones() {
+	public long getNumObjectClones() {
 		return NumObjectClones;
 	}
 
@@ -363,7 +363,7 @@ public class PoolSummary extends BaseBean {
 	 * param numObjectClones 要设置的 numObjectClones
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setNumObjectClones(String numObjectClones) {
+	public void setNumObjectClones(long numObjectClones) {
 		NumObjectClones = numObjectClones;
 	}
 
@@ -371,7 +371,7 @@ public class PoolSummary extends BaseBean {
 	 * return numObjects
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getNumObjects() {
+	public long getNumObjects() {
 		return NumObjects;
 	}
 
@@ -379,7 +379,7 @@ public class PoolSummary extends BaseBean {
 	 * param numObjects 要设置的 numObjects
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setNumObjects(String numObjects) {
+	public void setNumObjects(long numObjects) {
 		NumObjects = numObjects;
 	}
 
@@ -387,7 +387,7 @@ public class PoolSummary extends BaseBean {
 	 * return numDeepScrubErrors
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getNumDeepScrubErrors() {
+	public long getNumDeepScrubErrors() {
 		return NumDeepScrubErrors;
 	}
 
@@ -395,7 +395,7 @@ public class PoolSummary extends BaseBean {
 	 * param numDeepScrubErrors 要设置的 numDeepScrubErrors
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setNumDeepScrubErrors(String numDeepScrubErrors) {
+	public void setNumDeepScrubErrors(long numDeepScrubErrors) {
 		NumDeepScrubErrors = numDeepScrubErrors;
 	}
 
@@ -403,7 +403,7 @@ public class PoolSummary extends BaseBean {
 	 * return numShallowScrubErrors
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getNumShallowScrubErrors() {
+	public long getNumShallowScrubErrors() {
 		return NumShallowScrubErrors;
 	}
 
@@ -411,7 +411,7 @@ public class PoolSummary extends BaseBean {
 	 * param numShallowScrubErrors 要设置的 numShallowScrubErrors
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setNumShallowScrubErrors(String numShallowScrubErrors) {
+	public void setNumShallowScrubErrors(long numShallowScrubErrors) {
 		NumShallowScrubErrors = numShallowScrubErrors;
 	}
 
@@ -419,7 +419,7 @@ public class PoolSummary extends BaseBean {
 	 * return numReadKb
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getNumReadKb() {
+	public long getNumReadKb() {
 		return NumReadKb;
 	}
 
@@ -427,7 +427,7 @@ public class PoolSummary extends BaseBean {
 	 * param numReadKb 要设置的 numReadKb
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setNumReadKb(String numReadKb) {
+	public void setNumReadKb(long numReadKb) {
 		NumReadKb = numReadKb;
 	}
 
@@ -435,7 +435,7 @@ public class PoolSummary extends BaseBean {
 	 * return numObjectsMissing
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getNumObjectsMissing() {
+	public long getNumObjectsMissing() {
 		return NumObjectsMissing;
 	}
 
@@ -443,7 +443,7 @@ public class PoolSummary extends BaseBean {
 	 * param numObjectsMissing 要设置的 numObjectsMissing
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setNumObjectsMissing(String numObjectsMissing) {
+	public void setNumObjectsMissing(long numObjectsMissing) {
 		NumObjectsMissing = numObjectsMissing;
 	}
 
@@ -451,7 +451,7 @@ public class PoolSummary extends BaseBean {
 	 * return numFlushKb
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getNumFlushKb() {
+	public long getNumFlushKb() {
 		return NumFlushKb;
 	}
 
@@ -459,7 +459,7 @@ public class PoolSummary extends BaseBean {
 	 * param numFlushKb 要设置的 numFlushKb
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setNumFlushKb(String numFlushKb) {
+	public void setNumFlushKb(long numFlushKb) {
 		NumFlushKb = numFlushKb;
 	}
 
@@ -467,7 +467,7 @@ public class PoolSummary extends BaseBean {
 	 * return numFlushModeHigh
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getNumFlushModeHigh() {
+	public long getNumFlushModeHigh() {
 		return NumFlushModeHigh;
 	}
 
@@ -475,7 +475,7 @@ public class PoolSummary extends BaseBean {
 	 * param numFlushModeHigh 要设置的 numFlushModeHigh
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setNumFlushModeHigh(String numFlushModeHigh) {
+	public void setNumFlushModeHigh(long numFlushModeHigh) {
 		NumFlushModeHigh = numFlushModeHigh;
 	}
 
@@ -483,7 +483,7 @@ public class PoolSummary extends BaseBean {
 	 * return numWriteKb
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getNumWriteKb() {
+	public long getNumWriteKb() {
 		return NumWriteKb;
 	}
 
@@ -491,7 +491,7 @@ public class PoolSummary extends BaseBean {
 	 * param numWriteKb 要设置的 numWriteKb
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setNumWriteKb(String numWriteKb) {
+	public void setNumWriteKb(long numWriteKb) {
 		NumWriteKb = numWriteKb;
 	}
 
@@ -499,7 +499,7 @@ public class PoolSummary extends BaseBean {
 	 * return numEvictModeSome
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getNumEvictModeSome() {
+	public long getNumEvictModeSome() {
 		return NumEvictModeSome;
 	}
 
@@ -507,7 +507,7 @@ public class PoolSummary extends BaseBean {
 	 * param numEvictModeSome 要设置的 numEvictModeSome
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setNumEvictModeSome(String numEvictModeSome) {
+	public void setNumEvictModeSome(long numEvictModeSome) {
 		NumEvictModeSome = numEvictModeSome;
 	}
 
@@ -515,7 +515,7 @@ public class PoolSummary extends BaseBean {
 	 * return numObjectsDegraded
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getNumObjectsDegraded() {
+	public long getNumObjectsDegraded() {
 		return NumObjectsDegraded;
 	}
 
@@ -523,7 +523,7 @@ public class PoolSummary extends BaseBean {
 	 * param numObjectsDegraded 要设置的 numObjectsDegraded
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setNumObjectsDegraded(String numObjectsDegraded) {
+	public void setNumObjectsDegraded(long numObjectsDegraded) {
 		NumObjectsDegraded = numObjectsDegraded;
 	}
 
@@ -531,7 +531,7 @@ public class PoolSummary extends BaseBean {
 	 * return numFlush
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getNumFlush() {
+	public long getNumFlush() {
 		return NumFlush;
 	}
 
@@ -539,7 +539,7 @@ public class PoolSummary extends BaseBean {
 	 * param numFlush 要设置的 numFlush
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setNumFlush(String numFlush) {
+	public void setNumFlush(long numFlush) {
 		NumFlush = numFlush;
 	}
 
@@ -547,7 +547,7 @@ public class PoolSummary extends BaseBean {
 	 * return numObjectsMisplaced
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getNumObjectsMisplaced() {
+	public long getNumObjectsMisplaced() {
 		return NumObjectsMisplaced;
 	}
 
@@ -555,7 +555,7 @@ public class PoolSummary extends BaseBean {
 	 * param numObjectsMisplaced 要设置的 numObjectsMisplaced
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setNumObjectsMisplaced(String numObjectsMisplaced) {
+	public void setNumObjectsMisplaced(long numObjectsMisplaced) {
 		NumObjectsMisplaced = numObjectsMisplaced;
 	}
 
@@ -563,7 +563,7 @@ public class PoolSummary extends BaseBean {
 	 * return numBytesRecovered
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getNumBytesRecovered() {
+	public long getNumBytesRecovered() {
 		return NumBytesRecovered;
 	}
 
@@ -571,7 +571,7 @@ public class PoolSummary extends BaseBean {
 	 * param numBytesRecovered 要设置的 numBytesRecovered
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setNumBytesRecovered(String numBytesRecovered) {
+	public void setNumBytesRecovered(long numBytesRecovered) {
 		NumBytesRecovered = numBytesRecovered;
 	}
 
@@ -579,7 +579,7 @@ public class PoolSummary extends BaseBean {
 	 * return numObjectsHitSetArchive
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getNumObjectsHitSetArchive() {
+	public long getNumObjectsHitSetArchive() {
 		return NumObjectsHitSetArchive;
 	}
 
@@ -587,7 +587,7 @@ public class PoolSummary extends BaseBean {
 	 * param numObjectsHitSetArchive 要设置的 numObjectsHitSetArchive
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setNumObjectsHitSetArchive(String numObjectsHitSetArchive) {
+	public void setNumObjectsHitSetArchive(long numObjectsHitSetArchive) {
 		NumObjectsHitSetArchive = numObjectsHitSetArchive;
 	}
 
@@ -595,7 +595,7 @@ public class PoolSummary extends BaseBean {
 	 * return numKeysRecovered
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getNumKeysRecovered() {
+	public long getNumKeysRecovered() {
 		return NumKeysRecovered;
 	}
 
@@ -603,7 +603,7 @@ public class PoolSummary extends BaseBean {
 	 * param numKeysRecovered 要设置的 numKeysRecovered
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setNumKeysRecovered(String numKeysRecovered) {
+	public void setNumKeysRecovered(long numKeysRecovered) {
 		NumKeysRecovered = numKeysRecovered;
 	}
 
@@ -611,7 +611,7 @@ public class PoolSummary extends BaseBean {
 	 * return numFlushModeLow
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getNumFlushModeLow() {
+	public long getNumFlushModeLow() {
 		return NumFlushModeLow;
 	}
 
@@ -619,7 +619,7 @@ public class PoolSummary extends BaseBean {
 	 * param numFlushModeLow 要设置的 numFlushModeLow
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setNumFlushModeLow(String numFlushModeLow) {
+	public void setNumFlushModeLow(long numFlushModeLow) {
 		NumFlushModeLow = numFlushModeLow;
 	}
 
@@ -627,7 +627,7 @@ public class PoolSummary extends BaseBean {
 	 * return numObjectsUnfound
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getNumObjectsUnfound() {
+	public long getNumObjectsUnfound() {
 		return NumObjectsUnfound;
 	}
 
@@ -635,7 +635,7 @@ public class PoolSummary extends BaseBean {
 	 * param numObjectsUnfound 要设置的 numObjectsUnfound
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setNumObjectsUnfound(String numObjectsUnfound) {
+	public void setNumObjectsUnfound(long numObjectsUnfound) {
 		NumObjectsUnfound = numObjectsUnfound;
 	}
 
@@ -643,7 +643,7 @@ public class PoolSummary extends BaseBean {
 	 * return numPromote
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getNumPromote() {
+	public long getNumPromote() {
 		return NumPromote;
 	}
 
@@ -651,7 +651,7 @@ public class PoolSummary extends BaseBean {
 	 * param numPromote 要设置的 numPromote
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setNumPromote(String numPromote) {
+	public void setNumPromote(long numPromote) {
 		NumPromote = numPromote;
 	}
 
@@ -659,7 +659,7 @@ public class PoolSummary extends BaseBean {
 	 * return numObjectCopies
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getNumObjectCopies() {
+	public long getNumObjectCopies() {
 		return NumObjectCopies;
 	}
 
@@ -667,7 +667,7 @@ public class PoolSummary extends BaseBean {
 	 * param numObjectCopies 要设置的 numObjectCopies
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setNumObjectCopies(String numObjectCopies) {
+	public void setNumObjectCopies(long numObjectCopies) {
 		NumObjectCopies = numObjectCopies;
 	}
 
@@ -675,7 +675,7 @@ public class PoolSummary extends BaseBean {
 	 * return numBytes
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getNumBytes() {
+	public long getNumBytes() {
 		return NumBytes;
 	}
 
@@ -683,7 +683,7 @@ public class PoolSummary extends BaseBean {
 	 * param numBytes 要设置的 numBytes
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setNumBytes(String numBytes) {
+	public void setNumBytes(long numBytes) {
 		NumBytes = numBytes;
 	}
 
@@ -691,7 +691,7 @@ public class PoolSummary extends BaseBean {
 	 * return numObjectsDirty
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getNumObjectsDirty() {
+	public long getNumObjectsDirty() {
 		return NumObjectsDirty;
 	}
 
@@ -699,7 +699,7 @@ public class PoolSummary extends BaseBean {
 	 * param numObjectsDirty 要设置的 numObjectsDirty
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setNumObjectsDirty(String numObjectsDirty) {
+	public void setNumObjectsDirty(long numObjectsDirty) {
 		NumObjectsDirty = numObjectsDirty;
 	}
 }

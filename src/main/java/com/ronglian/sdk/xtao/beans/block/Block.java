@@ -41,7 +41,7 @@ public class Block extends BaseBean {
 	private String Name;
 	
 	@JSONField(name="size")
-	private String Size;
+	private long Size;
 	
 	/**
 	 * <br/>Description:
@@ -63,7 +63,7 @@ public class Block extends BaseBean {
 	public List<Block> Lists(String poolName) throws AuthException, HttpException, IOException {
 		BlockListResult blockListResult = null;
 
-		Map<String, String> maps = new HashMap<>();
+		Map<String, Object> maps = new HashMap<>();
 		maps.put("pool_name", poolName);
 		
 		try {
@@ -88,7 +88,7 @@ public class Block extends BaseBean {
 	public BlockInfo Info(String poolName,String blockName) throws AuthException, HttpException, IOException {
 		BlockInfoResult blockInfoResult = null;
 
-		Map<String, String> maps = new HashMap<>();
+		Map<String, Object> maps = new HashMap<>();
 		maps.put("pool_name", poolName);
 		maps.put("block_name", blockName);
 		
@@ -110,10 +110,10 @@ public class Block extends BaseBean {
 	 * <br/>Description:创建一个新的Block
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String Create(String poolName,String blockName,String size) throws AuthException, HttpException, IOException {
+	public String Create(String poolName,String blockName,long size) throws AuthException, HttpException, IOException {
 		PublicResult  publicResult = null;
 
-		Map<String, String> maps = new HashMap<>();
+		Map<String, Object> maps = new HashMap<>();
 		maps.put("pool_name", poolName);
 		maps.put("block_name", blockName);
 		maps.put("size", size);
@@ -136,10 +136,10 @@ public class Block extends BaseBean {
 	 * <br/>Description:改变block的Size大小,注意输入的Size需要大于Block之前的Size。
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String Resize(String poolName,String blockName,String size) throws AuthException, HttpException, IOException {
+	public String Resize(String poolName,String blockName,long size) throws AuthException, HttpException, IOException {
 		PublicResult  publicResult = null;
 
-		Map<String, String> maps = new HashMap<>();
+		Map<String, Object> maps = new HashMap<>();
 		maps.put("pool_name", poolName);
 		maps.put("block_name", blockName);
 		maps.put("size", size);
@@ -165,7 +165,7 @@ public class Block extends BaseBean {
 	public String CreateSnapshot(String poolName,String blockName,String snapName) throws AuthException, HttpException, IOException {
 		PublicResult  publicResult = null;
 
-		Map<String, String> maps = new HashMap<>();
+		Map<String, Object> maps = new HashMap<>();
 		maps.put("pool_name", poolName);
 		maps.put("block_name", blockName);
 		maps.put("snap_name", snapName);
@@ -191,7 +191,7 @@ public class Block extends BaseBean {
 	public String RollbackSnapshot(String snapName,String poolName,String blockName) throws AuthException, HttpException, IOException {
 		PublicResult  publicResult = null;
 
-		Map<String, String> maps = new HashMap<>();
+		Map<String, Object> maps = new HashMap<>();
 		maps.put("pool_name", poolName);
 		maps.put("block_name", blockName);
 		maps.put("snap_name", snapName);
@@ -217,7 +217,7 @@ public class Block extends BaseBean {
 	public String CloneBlockBySnapshot(String snapName,String poolName,String blockName,String cloneName) throws AuthException, HttpException, IOException {
 		PublicResult  publicResult = null;
 
-		Map<String, String> maps = new HashMap<>();
+		Map<String, Object> maps = new HashMap<>();
 		maps.put("pool_name", poolName);
 		maps.put("block_name", blockName);
 		maps.put("snap_name", snapName);
@@ -244,7 +244,7 @@ public class Block extends BaseBean {
 	public String DeleteSnapshot(String poolName,String blockName,String snapName) throws AuthException, HttpException, IOException {
 		PublicResult  publicResult = null;
 
-		Map<String, String> maps = new HashMap<>();
+		Map<String, Object> maps = new HashMap<>();
 		maps.put("pool_name", poolName);
 		maps.put("block_name", blockName);
 		maps.put("snap_name", snapName);
@@ -270,7 +270,7 @@ public class Block extends BaseBean {
 	public String DeleteBlock(String poolName,String blockName) throws AuthException, HttpException, IOException {
 		PublicResult  publicResult = null;
 
-		Map<String, String> maps = new HashMap<>();
+		Map<String, Object> maps = new HashMap<>();
 		maps.put("pool_name", poolName);
 		maps.put("block_name", blockName);
 		
@@ -310,7 +310,7 @@ public class Block extends BaseBean {
 	 * return size
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getSize() {
+	public long getSize() {
 		return Size;
 	}
 
@@ -318,9 +318,7 @@ public class Block extends BaseBean {
 	 * param size 要设置的 size
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setSize(String size) {
+	public void setSize(long size) {
 		Size = size;
 	}
-	
-	
 }

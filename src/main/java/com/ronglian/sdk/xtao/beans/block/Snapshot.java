@@ -37,7 +37,7 @@ public class Snapshot extends BaseBean {
 	 private String Name;
 	
 	@JSONField(name="size")
-	 private String Size;
+	 private long Size;
 	
 	/**
 	 * <br/>Description:
@@ -99,7 +99,7 @@ public class Snapshot extends BaseBean {
 	 * return size
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getSize() {
+	public long getSize() {
 		return Size;
 	}
 
@@ -107,8 +107,7 @@ public class Snapshot extends BaseBean {
 	 * param size 要设置的 size
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setSize(String size) {
+	public void setSize(long size) {
 		Size = size;
 	}
-
 }

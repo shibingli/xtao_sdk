@@ -72,7 +72,7 @@ public class Disk extends BaseBean {
 	private String Status;
 
 	@JSONField(name = "capacity")
-	private String Capacity;
+	private long Capacity;
 
 	@JSONField(name = "UUID")
 	private String UUID;
@@ -90,19 +90,19 @@ public class Disk extends BaseBean {
 	private String State;
 
 	@JSONField(name = "usage")
-	private String Usage;
+	private Double Usage;
 
 	@JSONField(name = "disk_type")
 	private String DiskType;
 
 	@JSONField(name = "used")
-	private String Used;
+	private long Used;
 
 	@JSONField(name = "weight")
-	private String Weight;
+	private Double Weight;
 
 	@JSONField(name = "commit_latency")
-	private String CommitLatency;
+	private int CommitLatency;
 
 	@JSONField(name = "OSD")
 	private String OSD;
@@ -111,10 +111,10 @@ public class Disk extends BaseBean {
 	private String Minor;
 
 	@JSONField(name = "apply_latency")
-	private String ApplyLatency;
+	private int ApplyLatency;
 
 	@JSONField(name = "size")
-	private String Size;
+	private long Size;
 
 	public Disk(String endpoint, User user) {
 		this.setUser(user);
@@ -130,7 +130,7 @@ public class Disk extends BaseBean {
 	 */
 	public List<Disk> Lists(String nodeName) throws IOException, AuthException, HttpException {
 
-		Map<String, String> maps = new HashMap<>();
+		Map<String, Object> maps = new HashMap<>();
 		maps.put("node_name", nodeName);
 
 		DiskListResult diskResult = Post(this.getEndpoint(), "/nodes/disk/list_disks", this.GetUserToken(), maps,
@@ -152,7 +152,7 @@ public class Disk extends BaseBean {
 	 */
 	public Disk Status(String nodeName, String hctl) throws IOException, AuthException, HttpException {
 
-		Map<String, String> maps = new HashMap<>();
+		Map<String, Object> maps = new HashMap<>();
 		maps.put("node_name", nodeName);
 		maps.put("HCTL", hctl);
 
@@ -175,7 +175,7 @@ public class Disk extends BaseBean {
 	 */
 	public String Locate(String nodeName, String hctl) throws IOException, AuthException, HttpException {
 
-		Map<String, String> maps = new HashMap<>();
+		Map<String, Object> maps = new HashMap<>();
 		maps.put("node_name", nodeName);
 		maps.put("HCTL", hctl);
 
@@ -199,7 +199,7 @@ public class Disk extends BaseBean {
 	public String Clear(String nodeName, String hctl, String FSType)
 			throws IOException, AuthException, HttpException {
 
-		Map<String, String> maps = new HashMap<>();
+		Map<String, Object> maps = new HashMap<>();
 		maps.put("node_name", nodeName);
 		maps.put("HCTL", hctl);
 		maps.put("fs_type", FSType);
@@ -243,7 +243,7 @@ public class Disk extends BaseBean {
 	public String Init(String nodeName, String hctl, boolean userCache)
 			throws IOException, AuthException, HttpException {
 
-		Map<String, String> maps = new HashMap<>();
+		Map<String, Object> maps = new HashMap<>();
 		maps.put("node_name", nodeName);
 		maps.put("HCTL", hctl);
 		maps.put("use_cache", SDKUtils.BooleanToYes(userCache));
@@ -267,7 +267,7 @@ public class Disk extends BaseBean {
 	 */
 	public String Join(String nodeName, String hctl) throws IOException, AuthException, HttpException {
 
-		Map<String, String> maps = new HashMap<>();
+		Map<String, Object> maps = new HashMap<>();
 		maps.put("node_name", nodeName);
 		maps.put("HCTL", hctl);
 
@@ -290,7 +290,7 @@ public class Disk extends BaseBean {
 	 */
 	public String Leave(String nodeName, String hctl) throws IOException, AuthException, HttpException {
 
-		Map<String, String> maps = new HashMap<>();
+		Map<String, Object> maps = new HashMap<>();
 		maps.put("node_name", nodeName);
 		maps.put("HCTL", hctl);
 
@@ -307,6 +307,7 @@ public class Disk extends BaseBean {
 	/**
 	 * <br/>
 	 * Description:创建专门的Journal盘
+	 * 注：条带数为整数，合理范围为1-20
 	 * <p>
 	 * Author:Eric Shi/史丙利
 	 * </p>
@@ -314,10 +315,10 @@ public class Disk extends BaseBean {
 	public String CreateCache(String nodeName, String hctl, int slices)
 			throws IOException, AuthException, HttpException {
 
-		Map<String, String> maps = new HashMap<>();
+		Map<String, Object> maps = new HashMap<>();
 		maps.put("node_name", nodeName);
 		maps.put("HCTL", hctl);
-		maps.put("slices", String.valueOf(slices));
+		maps.put("slices", slices);
 
 		PublicResult publicResult = Post(this.getEndpoint(), "/nodes/disk/create_cache", this.GetUserToken(), maps,
 				PublicResult.class);
@@ -338,7 +339,7 @@ public class Disk extends BaseBean {
 	 */
 	public List<Disk> CacheInfo(String nodeName, String hctl) throws IOException, AuthException, HttpException {
 
-		Map<String, String> maps = new HashMap<>();
+		Map<String, Object> maps = new HashMap<>();
 		maps.put("node_name", nodeName);
 		maps.put("HCTL", hctl);
 
@@ -372,25 +373,24 @@ public class Disk extends BaseBean {
 		Status = status;
 	}
 
+
+
 	/**
 	 * return capacity
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getCapacity() {
+	public long getCapacity() {
 		return Capacity;
 	}
 
 	/**
 	 * param capacity 要设置的 capacity
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setCapacity(String capacity) {
+	public void setCapacity(long capacity) {
 		Capacity = capacity;
 	}
+
 
 	/**
 	 * return uUID
@@ -492,23 +492,20 @@ public class Disk extends BaseBean {
 		State = state;
 	}
 
+
 	/**
 	 * return usage
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getUsage() {
+	public Double getUsage() {
 		return Usage;
 	}
 
 	/**
 	 * param usage 要设置的 usage
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setUsage(String usage) {
+	public void setUsage(Double usage) {
 		Usage = usage;
 	}
 
@@ -530,46 +527,6 @@ public class Disk extends BaseBean {
 	 */
 	public void setDiskType(String diskType) {
 		DiskType = diskType;
-	}
-
-	/**
-	 * return used
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
-	 */
-	public String getUsed() {
-		return Used;
-	}
-
-	/**
-	 * param used 要设置的 used
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
-	 */
-	public void setUsed(String used) {
-		Used = used;
-	}
-
-	/**
-	 * return weight
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
-	 */
-	public String getWeight() {
-		return Weight;
-	}
-
-	/**
-	 * param weight 要设置的 weight
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
-	 */
-	public void setWeight(String weight) {
-		Weight = weight;
 	}
 
 	/**
@@ -613,62 +570,82 @@ public class Disk extends BaseBean {
 	}
 
 	/**
-	 * return latency
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
-	 */
-	public String getLatency() {
-		return ApplyLatency;
-	}
-
-	/**
-	 * param latency 要设置的 latency
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
-	 */
-	public void setLatency(String latency) {
-		ApplyLatency = latency;
-	}
-
-	/**
-	 * return commit
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
-	 */
-	public String getCommit() {
-		return CommitLatency;
-	}
-
-	/**
-	 * param commit 要设置的 commit
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
-	 */
-	public void setCommit(String commit) {
-		CommitLatency = commit;
-	}
-
-	/**
 	 * return size
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getSize() {
+	public long getSize() {
 		return Size;
 	}
 
 	/**
 	 * param size 要设置的 size
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setSize(String size) {
+	public void setSize(long size) {
 		Size = size;
+	}
+
+	/**
+	 * return used
+	 * <p>Author:Eric Shi/史丙利</p>
+	 */
+	public long getUsed() {
+		return Used;
+	}
+
+	/**
+	 * param used 要设置的 used
+	 * <p>Author:Eric Shi/史丙利</p>
+	 */
+	public void setUsed(long used) {
+		Used = used;
+	}
+
+	/**
+	 * return weight
+	 * <p>Author:Eric Shi/史丙利</p>
+	 */
+	public Double getWeight() {
+		return Weight;
+	}
+
+	/**
+	 * param weight 要设置的 weight
+	 * <p>Author:Eric Shi/史丙利</p>
+	 */
+	public void setWeight(Double weight) {
+		Weight = weight;
+	}
+
+	/**
+	 * return commitLatency
+	 * <p>Author:Eric Shi/史丙利</p>
+	 */
+	public int getCommitLatency() {
+		return CommitLatency;
+	}
+
+	/**
+	 * param commitLatency 要设置的 commitLatency
+	 * <p>Author:Eric Shi/史丙利</p>
+	 */
+	public void setCommitLatency(int commitLatency) {
+		CommitLatency = commitLatency;
+	}
+
+	/**
+	 * return applyLatency
+	 * <p>Author:Eric Shi/史丙利</p>
+	 */
+	public int getApplyLatency() {
+		return ApplyLatency;
+	}
+
+	/**
+	 * param applyLatency 要设置的 applyLatency
+	 * <p>Author:Eric Shi/史丙利</p>
+	 */
+	public void setApplyLatency(int applyLatency) {
+		ApplyLatency = applyLatency;
 	}
 }

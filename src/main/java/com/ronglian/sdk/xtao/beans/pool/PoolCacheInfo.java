@@ -28,7 +28,7 @@ public class PoolCacheInfo extends BaseBean {
 	private static final long serialVersionUID = 1731568459878380402L;
 	
 	@JSONField(name="max_objects")
-    private String MaxObjects;
+    private long MaxObjects;
 	
 	@JSONField(name="cache_mode")
     private String CacheMode;
@@ -37,13 +37,10 @@ public class PoolCacheInfo extends BaseBean {
     private String Writeback;
 	
 	@JSONField(name="max_bytes")
-    private String MaxBytes;
-	
-	@JSONField(name="unit")
-    private String Unit;
+    private long MaxBytes;
 	
 	@JSONField(name="dirty_ratio")
-    private String DirtyRatio;
+    private double DirtyRatio;
 
 	/**
 	 * <br/>Description:
@@ -57,7 +54,7 @@ public class PoolCacheInfo extends BaseBean {
 	 * return maxObjects
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getMaxObjects() {
+	public long getMaxObjects() {
 		return MaxObjects;
 	}
 
@@ -65,7 +62,7 @@ public class PoolCacheInfo extends BaseBean {
 	 * param maxObjects 要设置的 maxObjects
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setMaxObjects(String maxObjects) {
+	public void setMaxObjects(long maxObjects) {
 		MaxObjects = maxObjects;
 	}
 
@@ -105,7 +102,7 @@ public class PoolCacheInfo extends BaseBean {
 	 * return maxBytes
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getMaxBytes() {
+	public long getMaxBytes() {
 		return MaxBytes;
 	}
 
@@ -113,31 +110,15 @@ public class PoolCacheInfo extends BaseBean {
 	 * param maxBytes 要设置的 maxBytes
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setMaxBytes(String maxBytes) {
+	public void setMaxBytes(long maxBytes) {
 		MaxBytes = maxBytes;
-	}
-
-	/**
-	 * return unit
-	 * <p>Author:Eric Shi/史丙利</p>
-	 */
-	public String getUnit() {
-		return Unit;
-	}
-
-	/**
-	 * param unit 要设置的 unit
-	 * <p>Author:Eric Shi/史丙利</p>
-	 */
-	public void setUnit(String unit) {
-		Unit = unit;
 	}
 
 	/**
 	 * return dirtyRatio
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getDirtyRatio() {
+	public double getDirtyRatio() {
 		return DirtyRatio;
 	}
 
@@ -145,7 +126,7 @@ public class PoolCacheInfo extends BaseBean {
 	 * param dirtyRatio 要设置的 dirtyRatio
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setDirtyRatio(String dirtyRatio) {
+	public void setDirtyRatio(double dirtyRatio) {
 		DirtyRatio = dirtyRatio;
 	}
 }

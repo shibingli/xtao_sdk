@@ -59,22 +59,22 @@ public class PoolProperties extends BaseBean {
 	private String Name;
 
 	@JSONField(name = "min_size")
-	private String MinSize;
+	private int MinSize;
 
 	@JSONField(name = "cluster")
 	private String Cluster;
 
 	@JSONField(name = "replica")
-	private String Replica;
+	private int Replica;
 
 	@JSONField(name = "stripe")
-	private String Stripe;
+	private int Stripe;
 
 	@JSONField(name = "type")
 	private String PoolType;
 
 	@JSONField(name = "max_size")
-	private String MaxSize;
+	private long MaxSize;
 
 	/**
 	 * <br/>
@@ -89,9 +89,7 @@ public class PoolProperties extends BaseBean {
 
 	/**
 	 * return maxObjects
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
 	public String getMaxObjects() {
 		return MaxObjects;
@@ -99,9 +97,7 @@ public class PoolProperties extends BaseBean {
 
 	/**
 	 * param maxObjects 要设置的 maxObjects
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
 	public void setMaxObjects(String maxObjects) {
 		MaxObjects = maxObjects;
@@ -109,9 +105,7 @@ public class PoolProperties extends BaseBean {
 
 	/**
 	 * return domain
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
 	public String getDomain() {
 		return Domain;
@@ -119,9 +113,7 @@ public class PoolProperties extends BaseBean {
 
 	/**
 	 * param domain 要设置的 domain
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
 	public void setDomain(String domain) {
 		Domain = domain;
@@ -129,9 +121,7 @@ public class PoolProperties extends BaseBean {
 
 	/**
 	 * return name
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
 	public String getName() {
 		return Name;
@@ -139,9 +129,7 @@ public class PoolProperties extends BaseBean {
 
 	/**
 	 * param name 要设置的 name
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
 	public void setName(String name) {
 		Name = name;
@@ -149,29 +137,23 @@ public class PoolProperties extends BaseBean {
 
 	/**
 	 * return minSize
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getMinSize() {
+	public int getMinSize() {
 		return MinSize;
 	}
 
 	/**
 	 * param minSize 要设置的 minSize
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setMinSize(String minSize) {
+	public void setMinSize(int minSize) {
 		MinSize = minSize;
 	}
 
 	/**
 	 * return cluster
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
 	public String getCluster() {
 		return Cluster;
@@ -179,9 +161,7 @@ public class PoolProperties extends BaseBean {
 
 	/**
 	 * param cluster 要设置的 cluster
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
 	public void setCluster(String cluster) {
 		Cluster = cluster;
@@ -189,49 +169,39 @@ public class PoolProperties extends BaseBean {
 
 	/**
 	 * return replica
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getReplica() {
+	public int getReplica() {
 		return Replica;
 	}
 
 	/**
 	 * param replica 要设置的 replica
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setReplica(String replica) {
+	public void setReplica(int replica) {
 		Replica = replica;
 	}
 
 	/**
 	 * return stripe
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getStripe() {
+	public int getStripe() {
 		return Stripe;
 	}
 
 	/**
 	 * param stripe 要设置的 stripe
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setStripe(String stripe) {
+	public void setStripe(int stripe) {
 		Stripe = stripe;
 	}
 
 	/**
 	 * return poolType
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
 	public String getPoolType() {
 		return PoolType;
@@ -239,9 +209,7 @@ public class PoolProperties extends BaseBean {
 
 	/**
 	 * param poolType 要设置的 poolType
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
 	public void setPoolType(String poolType) {
 		PoolType = poolType;
@@ -249,21 +217,17 @@ public class PoolProperties extends BaseBean {
 
 	/**
 	 * return maxSize
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getMaxSize() {
+	public long getMaxSize() {
 		return MaxSize;
 	}
 
 	/**
 	 * param maxSize 要设置的 maxSize
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setMaxSize(String maxSize) {
+	public void setMaxSize(long maxSize) {
 		MaxSize = maxSize;
 	}
 }

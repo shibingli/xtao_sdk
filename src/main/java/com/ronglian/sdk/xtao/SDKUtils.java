@@ -100,7 +100,7 @@ public class SDKUtils {
 	 * Author:Eric Shi/史丙利
 	 * </p>
 	 */
-	public static RequestBody CreateFormReqBody(Map<String, String> maps) {
+	public static RequestBody CreateFormReqBody(Map<String, Object> maps) {
 
 		RequestBody reqBody = RequestBody.create(JSON_TYPE, SDKUtils.ObjectToJson(maps));
 

@@ -95,7 +95,7 @@ public class Domain extends BaseBean {
 	 */
 	public DomainShow ShowDomain(boolean reference, String refName) throws IOException, AuthException, HttpException {
 
-		Map<String, String> maps = new HashMap<>();
+		Map<String, Object> maps = new HashMap<>();
 		maps.put("reference", SDKUtils.BooleanToYes(reference));
 		maps.put("ref_name", refName);
 
@@ -138,7 +138,7 @@ public class Domain extends BaseBean {
 	public String Create(String name, boolean reference, String refName)
 			throws IOException, AuthException, HttpException {
 
-		Map<String, String> maps = new HashMap<>();
+		Map<String, Object> maps = new HashMap<>();
 		maps.put("reference", SDKUtils.BooleanToYes(reference));
 		maps.put("ref_name", refName);
 		maps.put("domain_name", name);
@@ -160,7 +160,7 @@ public class Domain extends BaseBean {
 	public String Delete(String name, boolean reference, String refName)
 			throws IOException, AuthException, HttpException {
 
-		Map<String, String> maps = new HashMap<>();
+		Map<String, Object> maps = new HashMap<>();
 		maps.put("reference", SDKUtils.BooleanToYes(reference));
 		maps.put("ref_name", refName);
 		maps.put("domain_name", name);
@@ -177,7 +177,7 @@ public class Domain extends BaseBean {
 	
 	public DomainShow Move(String sourceDisk,String destNode,boolean reference, String refName) throws IOException, AuthException, HttpException {
 
-		Map<String, String> maps = new HashMap<>();
+		Map<String, Object> maps = new HashMap<>();
 		maps.put("reference", SDKUtils.BooleanToYes(reference));
 		maps.put("ref_name", refName);
 		maps.put("source_disk", sourceDisk);
@@ -200,7 +200,7 @@ public class Domain extends BaseBean {
 	public String Commit(boolean reference, String refName)
 			throws IOException, AuthException, HttpException {
 
-		Map<String, String> maps = new HashMap<>();
+		Map<String, Object> maps = new HashMap<>();
 		maps.put("reference", SDKUtils.BooleanToYes(reference));
 		maps.put("ref_name", refName);
 

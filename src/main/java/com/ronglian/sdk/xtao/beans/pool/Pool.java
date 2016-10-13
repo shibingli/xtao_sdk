@@ -66,10 +66,10 @@ public class Pool extends BaseBean {
 	private String Name;
 
 	@JSONField(name = "size_quota_unit")
-	private String SizeQuotaUnit;
+	private long SizeQuotaUnit;
 
 	@JSONField(name = "minisize")
-	private String Minisize;
+	private int Minisize;
 
 	@JSONField(name = "cache")
 	private String Cache;
@@ -78,16 +78,16 @@ public class Pool extends BaseBean {
 	private String SizeQuotaNumber;
 
 	@JSONField(name = "stripe")
-	private String Stripe;
+	private int Stripe;
 
 	@JSONField(name = "pool_type")
 	private String PoolType;
 
 	@JSONField(name = "rep")
-	private String Rep;
+	private int Rep;
 
 	@JSONField(name = "objects_quota_number")
-	private String ObjectsQuotaNumber;
+	private long ObjectsQuotaNumber;
 
 	/**
 	 * <br/>
@@ -157,11 +157,11 @@ public class Pool extends BaseBean {
 	 * <br/>Description:创建一个新池
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String Create(String poolName, String domainName, String repNum)
+	public String Create(String poolName, String domainName, int repNum)
 			throws AuthException, HttpException, IOException {
 		PublicResult publicResult = null;
 
-		Map<String, String> maps = new HashMap<>();
+		Map<String, Object> maps = new HashMap<>();
 		maps.put("pool_name", poolName);
 		maps.put("domain_name", domainName);
 		maps.put("rep_num", repNum);
@@ -188,7 +188,7 @@ public class Pool extends BaseBean {
 			throws AuthException, HttpException, IOException {
 		PublicResult publicResult = null;
 
-		Map<String, String> maps = new HashMap<>();
+		Map<String, Object> maps = new HashMap<>();
 		maps.put("pool_name", poolName);
 
 		try {
@@ -210,11 +210,11 @@ public class Pool extends BaseBean {
 	 * 设置池能存放的对象的上限(例如500个)，或者池存储的容量的上限(例如1000GB)
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String Quota(String poolName,String quotaType,String quotaValue)
+	public String Quota(String poolName,String quotaType,long quotaValue)
 			throws AuthException, HttpException, IOException {
 		PublicResult publicResult = null;
 
-		Map<String, String> maps = new HashMap<>();
+		Map<String, Object> maps = new HashMap<>();
 		maps.put("pool_name", poolName);
 		maps.put("quota_type", quotaType);
 		maps.put("quota_value", quotaValue);
@@ -241,7 +241,7 @@ public class Pool extends BaseBean {
 			throws AuthException, HttpException, IOException {
 		PublicResult publicResult = null;
 
-		Map<String, String> maps = new HashMap<>();
+		Map<String, Object> maps = new HashMap<>();
 		maps.put("storage_pool", storagePool);
 		maps.put("cache_pool", cachePool);
 		maps.put("cache_mode", cacheMode);
@@ -268,7 +268,7 @@ public class Pool extends BaseBean {
 			throws AuthException, HttpException, IOException {
 		PoolCacheInfoResult poolCacheInfoResult = null;
 
-		Map<String, String> maps = new HashMap<>();
+		Map<String, Object> maps = new HashMap<>();
 		maps.put("pool_name", poolName);
 
 		try {
@@ -289,12 +289,12 @@ public class Pool extends BaseBean {
 	 * <br/>Description:调整缓存池的参数
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String CacheInfo(String cachePoolName,String cacheMode,String maxBytes,String maxObjects,String dirtyRatio)
+	public String SetCache(String cachePoolName,String cacheMode,long maxBytes,long maxObjects,double dirtyRatio)
 			throws AuthException, HttpException, IOException {
 		
 		PublicResult publicResult = null;
 
-		Map<String, String> maps = new HashMap<>();
+		Map<String, Object> maps = new HashMap<>();
 		maps.put("cache_pool", cachePoolName);
 		maps.put("cache_mode", cacheMode);
 		maps.put("max_bytes", maxBytes);
@@ -302,7 +302,7 @@ public class Pool extends BaseBean {
 		maps.put("dirty_ratio", dirtyRatio);
 
 		try {
-			publicResult = Post(this.getEndpoint(), "/pools/cache/cache_info", this.GetUserToken(), maps,
+			publicResult = Post(this.getEndpoint(), "/pools/cache/set_cache", this.GetUserToken(), maps,
 					PublicResult.class);
 		} catch (IOException e) {
 			throw e;
@@ -325,7 +325,7 @@ public class Pool extends BaseBean {
 		
 		PublicResult publicResult = null;
 
-		Map<String, String> maps = new HashMap<>();
+		Map<String, Object> maps = new HashMap<>();
 		maps.put("cache_pool", cachePoolName);
 
 		try {
@@ -351,7 +351,7 @@ public class Pool extends BaseBean {
 		
 		PublicResult publicResult = null;
 
-		Map<String, String> maps = new HashMap<>();
+		Map<String, Object> maps = new HashMap<>();
 		maps.put("storage_pool", storagePool);
 		maps.put("cache_pool", cachePoolName);
 
@@ -412,49 +412,39 @@ public class Pool extends BaseBean {
 
 	/**
 	 * return sizeQuotaUnit
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getSizeQuotaUnit() {
+	public long getSizeQuotaUnit() {
 		return SizeQuotaUnit;
 	}
 
 	/**
 	 * param sizeQuotaUnit 要设置的 sizeQuotaUnit
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setSizeQuotaUnit(String sizeQuotaUnit) {
+	public void setSizeQuotaUnit(long sizeQuotaUnit) {
 		SizeQuotaUnit = sizeQuotaUnit;
 	}
 
 	/**
 	 * return minisize
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getMinisize() {
+	public int getMinisize() {
 		return Minisize;
 	}
 
 	/**
 	 * param minisize 要设置的 minisize
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setMinisize(String minisize) {
+	public void setMinisize(int minisize) {
 		Minisize = minisize;
 	}
 
 	/**
 	 * return cache
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
 	public String getCache() {
 		return Cache;
@@ -462,9 +452,7 @@ public class Pool extends BaseBean {
 
 	/**
 	 * param cache 要设置的 cache
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
 	public void setCache(String cache) {
 		Cache = cache;
@@ -472,9 +460,7 @@ public class Pool extends BaseBean {
 
 	/**
 	 * return sizeQuotaNumber
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
 	public String getSizeQuotaNumber() {
 		return SizeQuotaNumber;
@@ -482,9 +468,7 @@ public class Pool extends BaseBean {
 
 	/**
 	 * param sizeQuotaNumber 要设置的 sizeQuotaNumber
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
 	public void setSizeQuotaNumber(String sizeQuotaNumber) {
 		SizeQuotaNumber = sizeQuotaNumber;
@@ -492,29 +476,23 @@ public class Pool extends BaseBean {
 
 	/**
 	 * return stripe
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getStripe() {
+	public int getStripe() {
 		return Stripe;
 	}
 
 	/**
 	 * param stripe 要设置的 stripe
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setStripe(String stripe) {
+	public void setStripe(int stripe) {
 		Stripe = stripe;
 	}
 
 	/**
 	 * return poolType
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
 	public String getPoolType() {
 		return PoolType;
@@ -522,9 +500,7 @@ public class Pool extends BaseBean {
 
 	/**
 	 * param poolType 要设置的 poolType
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
 	public void setPoolType(String poolType) {
 		PoolType = poolType;
@@ -532,42 +508,33 @@ public class Pool extends BaseBean {
 
 	/**
 	 * return rep
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getRep() {
+	public int getRep() {
 		return Rep;
 	}
 
 	/**
 	 * param rep 要设置的 rep
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setRep(String rep) {
+	public void setRep(int rep) {
 		Rep = rep;
 	}
 
 	/**
 	 * return objectsQuotaNumber
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getObjectsQuotaNumber() {
+	public long getObjectsQuotaNumber() {
 		return ObjectsQuotaNumber;
 	}
 
 	/**
 	 * param objectsQuotaNumber 要设置的 objectsQuotaNumber
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setObjectsQuotaNumber(String objectsQuotaNumber) {
+	public void setObjectsQuotaNumber(long objectsQuotaNumber) {
 		ObjectsQuotaNumber = objectsQuotaNumber;
 	}
-
 }

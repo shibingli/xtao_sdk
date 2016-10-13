@@ -50,19 +50,19 @@ public class PoolSubStatus extends BaseBean {
 	private static final long serialVersionUID = 7102373424785569277L;
 
 	@JSONField(name = "logsize")
-	private String Logsize;
+	private long Logsize;
 
 	@JSONField(name = "acting")
-	private String Acting;
+	private long Acting;
 
 	@JSONField(name = "used")
-	private String Used;
+	private Double Used;
 
 	@JSONField(name = "up")
-	private String Up;
+	private long Up;
 
 	@JSONField(name = "objects")
-	private String Objects;
+	private long Objects;
 	
 	/**
 	 * <br/>Description:
@@ -74,101 +74,81 @@ public class PoolSubStatus extends BaseBean {
 
 	/**
 	 * return logsize
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getLogsize() {
+	public long getLogsize() {
 		return Logsize;
 	}
 
 	/**
 	 * param logsize 要设置的 logsize
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setLogsize(String logsize) {
+	public void setLogsize(long logsize) {
 		Logsize = logsize;
 	}
 
 	/**
 	 * return acting
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getActing() {
+	public long getActing() {
 		return Acting;
 	}
 
 	/**
 	 * param acting 要设置的 acting
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setActing(String acting) {
+	public void setActing(long acting) {
 		Acting = acting;
 	}
 
 	/**
 	 * return used
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getUsed() {
+	public Double getUsed() {
 		return Used;
 	}
 
 	/**
 	 * param used 要设置的 used
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setUsed(String used) {
+	public void setUsed(Double used) {
 		Used = used;
 	}
 
 	/**
 	 * return up
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getUp() {
+	public long getUp() {
 		return Up;
 	}
 
 	/**
 	 * param up 要设置的 up
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setUp(String up) {
+	public void setUp(long up) {
 		Up = up;
 	}
 
 	/**
 	 * return objects
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public String getObjects() {
+	public long getObjects() {
 		return Objects;
 	}
 
 	/**
 	 * param objects 要设置的 objects
-	 * <p>
-	 * Author:Eric Shi/史丙利
-	 * </p>
+	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public void setObjects(String objects) {
+	public void setObjects(long objects) {
 		Objects = objects;
 	}
 }

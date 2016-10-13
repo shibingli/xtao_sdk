@@ -83,7 +83,7 @@ public class BaseBean implements Serializable {
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
 	public User Login() throws AuthException, IOException {
-		Map<String, String> maps = Maps.newHashMap();
+		Map<String, Object> maps = Maps.newHashMap();
 		maps.put("username", this.getUser().getUserName());
 		maps.put("password", this.getUser().getPassword());
 
@@ -99,7 +99,7 @@ public class BaseBean implements Serializable {
 	 * <br/>Description:发起XTao API 一个 OkHttp POST 请求
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	public <T> T Post(String endpoint, String path, String accessToken, Map<String, String> maps, Class<T> valueType)
+	public <T> T Post(String endpoint, String path, String accessToken, Map<String, Object> maps, Class<T> valueType)
 			throws IOException {
 		return OkHttpPost(endpoint + SDKUtils.PathStartConvert(path), accessToken, maps, valueType);
 	}
@@ -108,7 +108,7 @@ public class BaseBean implements Serializable {
 	 * <br/>Description:发起原生一个 OkHttp POST 请求
 	 * <p>Author:Eric Shi/史丙利</p>
 	 */
-	private <T> T OkHttpPost(String url, String accessToken, Map<String, String> maps, Class<T> valueType)
+	private <T> T OkHttpPost(String url, String accessToken, Map<String, Object> maps, Class<T> valueType)
 			throws IOException {
 		T resultObj = null;
 		OkHttpClient client = new OkHttpClient();
