@@ -117,7 +117,6 @@ public class XtaoTest {
 		NodeListResult nodeResult = new NodeListResult();
 		nodeResult.setErrmsg("");
 		nodeResult.setStatus("ok");
-
 		nodeResult.setResult(Lists.newArrayList(new Node("xt1", 1, 10), new Node("xt2", 1, 11)));
 
 		String jsonData = SDKUtils.ObjectToJson(nodeResult);
